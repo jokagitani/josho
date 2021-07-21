@@ -15,6 +15,7 @@ const Post = (props) => {
             uri: post.uri,
           }}
         />
+        {/*  */}
         {/* Rate */}
         <Text style={{ fontSize: 24, margin: 10 }}>from ${post.rate}/hour</Text>
       </View>
