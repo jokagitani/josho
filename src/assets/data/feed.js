@@ -23,4 +23,12 @@ export default [
     age: 33,
     rate: 60,
   },
+  {
+    id: 3,
+    uri: "https://react.semantic-ui.com/images/avatar/large/nan.jpg",
+    username: "Brian Scalabrine",
+    text: "NBA GOAT",
+    age: 45,
+    rate: 5,
+  },
 ];

@@ -35,7 +35,7 @@ const Post = (props) => {
 const styles = StyleSheet.create({
   container: {
     margin: 10,
-    padding: 20,
+    padding: 10,
     backgroundColor: "#AFDCEB",
     borderRadius: 20,
     display: "flex",
@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   name: {
-    margin: 10,
+    margin: 5,
     fontSize: 36,
     fontWeight: "bold",
     textShadowColor: "#AFDCEB",
     textShadowRadius: 10,
   },
   description: {
-    margin: 10,
+    margin: 5,
     fontSize: 24,
     textShadowColor: "#AFDCEB",
     textShadowRadius: 10,

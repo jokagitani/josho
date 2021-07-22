@@ -4,16 +4,24 @@ import { StyleSheet, Text, View } from "react-native";
 import Post from "./src/components/Post";
 import HomeScreen from "./src/screens/Home";
 import feed from "./src/assets/data/feed";
+import SearchResultsScreen from "./src/screens/SearchResults";
 
 const post1 = feed[0];
 
 export default function App() {
   return (
-    <View>
+    <View style={styles.serachScreen}>
       {/* <HomeScreen /> */}
-      <Post post={feed[0]} />
+      {/* <Post post={feed[0]} />
       <Post post={feed[1]} />
-      <Post post={feed[2]} />
+      <Post post={feed[2]} /> */}
+      <SearchResultsScreen />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  serachScreen: {
+    marginTop: 50,
+  },
+});
