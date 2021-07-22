@@ -3,7 +3,7 @@ import { View, Text, FlatList } from "react-native";
 import Post from "../../components/Post";
 import feed from "../../assets/data/feed";
 
-const SearchResultsScreen = (props) => {
+const SearchResults = (props) => {
   return (
     <View>
       <FlatList data={feed} renderItem={({ item }) => <Post post={item} />} />
@@ -11,4 +11,4 @@ const SearchResultsScreen = (props) => {
   );
 };
 
-export default SearchResultsScreen;
+export default SearchResults;
