@@ -6,7 +6,11 @@ import feed from "../../assets/data/feed";
 const SearchResults = (props) => {
   return (
     <View>
-      <FlatList data={feed} renderItem={({ item }) => <Post post={item} />} />
+      <FlatList
+        data={feed}
+        renderItem={({ item }) => <Post post={item} />}
+        keyExtractor={(item) => item.id.toString()}
+      />
     </View>
   );
 };

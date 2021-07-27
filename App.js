@@ -6,25 +6,23 @@ import HomeScreen from "./src/screens/Home";
 import feed from "./src/assets/data/feed";
 import SearchResults from "./src/screens/SearchResults";
 import Interest from "./src/screens/Interest";
-
-const post1 = feed[0];
+import Details from "./src/screens/Details";
+import FitnessPal from "./src/screens/MyFitnessPal";
+import "react-native-gesture-handler";
+import Router from "./src/navigation/router";
 
 export default function App() {
   return (
-    <View style={styles.serachScreen}>
+    <>
+      <Router />
       {/* <HomeScreen /> */}
       {/* <Post post={feed[0]} />
       <Post post={feed[1]} />
       <Post post={feed[2]} /> */}
       {/* <SearchResults /> */}
-      <Interest />
-    </View>
+      {/* <Interest /> */}
+      {/* <Details /> */}
+      {/* <FitnessPal /> */}
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  serachScreen: {
-    marginTop: 50,
-    padding: 10,
-  },
-});

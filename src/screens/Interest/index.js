@@ -1,10 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  FlatList,
+  Pressable,
+} from "react-native";
 import search from "../../assets/data/search";
 import Entypo from "react-native-vector-icons/Entypo";
+import { useNavigation } from "@react-navigation/native";
 
 const Interest = () => {
   const [inputText, setInputText] = useState("");
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <TextInput
@@ -16,13 +25,17 @@ const Interest = () => {
       <FlatList
         data={search}
         renderItem={({ item }) => (
-          <View style={styles.searchContainer}>
+          <Pressable
+            onPress={() => navigation.navigate("Refine Search")}
+            style={styles.searchContainer}
+          >
             <View style={styles.iconContainer}>
               <Entypo name={"triangle-right"} size={20} />
             </View>
             <Text style={styles.searchContent}>{item.type}</Text>
-          </View>
+          </Pressable>
         )}
+        keyExtractor={(item) => item.id.toString()}
       />
     </View>
   );

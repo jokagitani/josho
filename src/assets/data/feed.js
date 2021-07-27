@@ -6,6 +6,7 @@ export default [
     text: "Passionate basketball instructor",
     age: 40,
     rate: 45,
+    star: 14,
   },
   {
     id: 1,
@@ -14,6 +15,7 @@ export default [
     text: "NBA shooting coach",
     age: 40,
     rate: 45,
+    star: 10,
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ export default [
     text: "Social media head",
     age: 33,
     rate: 60,
+    star: 8,
   },
   {
     id: 3,
@@ -30,5 +33,6 @@ export default [
     text: "NBA GOAT",
     age: 45,
     rate: 5,
+    star: 3,
   },
 ];
