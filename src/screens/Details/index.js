@@ -1,11 +1,13 @@
 import React, { useState, useCallback } from "react";
 import { View, Text, TextInput, StyleSheet, Pressable } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
+import { useNavigation } from "@react-navigation/native";
 
 const Details = () => {
   const [textInput, setTextInput] = useState("");
   const [personalLevel, setPersonalLevel] = useState(0);
   const [mentorLevel, setMentorLevel] = useState(0);
+  const navigation = useNavigation();
 
   return (
     <View style={{ justifyContent: "space-between", height: "100%" }}>
@@ -124,13 +126,26 @@ const Details = () => {
       </View>
       <Pressable
         style={{
-          marginBottom: 20,
-          backgroundColor: "red",
+          marginBottom: "10%",
+          backgroundColor: "#cee8f0",
           alignItems: "center",
-          height: "20%",
+          justifyContent: "center",
+          height: "5%",
+          marginHorizontal: 10,
+          borderRadius: 50,
+          borderWidth: 1,
+          borderColor: "#ececec",
         }}
+        onPress={() =>
+          navigation.navigate("Home", {
+            screen: "Explore",
+            params: {
+              screen: "SearchResults",
+            },
+          })
+        }
       >
-        <Text>Search</Text>
+        <Text style={{ fontSize: 16, fontWeight: "bold" }}>Search</Text>
       </Pressable>
     </View>
   );

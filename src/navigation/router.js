@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import SearchResults from "../screens/SearchResults";
 import Interest from "../screens/Interest";
 import HomeTab from "./homeTab";
-import Details from "../screens/Details/index";
+import Details from "../screens/Details";
 import StarPage from "../screens/Page2";
 
 const Stack = createStackNavigator();
