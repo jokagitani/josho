@@ -2,6 +2,8 @@ import React, { useState, useCallback } from "react";
 import { View, Text, TextInput, StyleSheet, Pressable } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
 import { useNavigation } from "@react-navigation/native";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import Suggestion from "./Suggestion";
 
 const Details = () => {
   const [textInput, setTextInput] = useState("");
@@ -10,120 +12,122 @@ const Details = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{ justifyContent: "space-between", height: "100%" }}>
-      <View>
-        <View style={styles.rowContainer}>
+    <View
+      style={{
+        justifyContent: "space-between",
+        height: "100%",
+      }}
+    >
+      <GooglePlacesAutocomplete
+        placeholder="Preferred Location"
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details);
+        }}
+        styles={{
+          textInput: styles.textInput,
+        }}
+        query={{
+          key: "AIzaSyD3PDLkwJAgnu5JgS4slO0JKPG4iBT5-Vc",
+          language: "en",
+          components: "country:sg",
+        }}
+        fetchDetails
+        suppressDefaultStyles
+        renderRow={(item) => <Suggestion item={item} />}
+      />
+
+      <View style={styles.rowContainer}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View>
+            <Text style={styles.text}>Personal Experience level</Text>
+            <Text style={{ color: "#8d8d8d" }}>
+              0: Beginner 1: Amateur 2: Intermediate
+            </Text>
+          </View>
+
           <View
             style={{
               flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "stretch",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            <Entypo name={"location-pin"} size={40} color={"black"} />
-            <TextInput
-              style={styles.textInput}
-              placeholder="Preferred Location"
-            />
-          </View>
-        </View>
-        <View style={styles.rowContainer}>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <View>
-              <Text style={styles.text}>Personal Experience level</Text>
-              <Text style={{ color: "#8d8d8d" }}>
-                0: Beginner 1: Amateur 2: Intermediate
-              </Text>
-            </View>
-
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+            <Pressable
+              onPress={() => setPersonalLevel(Math.max(0, personalLevel - 1))}
+              style={styles.button}
             >
-              <Pressable
-                onPress={() => setPersonalLevel(Math.max(0, personalLevel - 1))}
-                style={styles.button}
-              >
-                <Text>-</Text>
-              </Pressable>
+              <Text>-</Text>
+            </Pressable>
 
-              <Text style={{ marginHorizontal: 10 }}>{personalLevel}</Text>
+            <Text style={{ marginHorizontal: 10 }}>{personalLevel}</Text>
 
-              <Pressable
-                onPress={() => setPersonalLevel(Math.min(2, personalLevel + 1))}
-                style={styles.button}
-              >
-                <Text>+</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-        <View style={styles.rowContainer}>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <View>
-              <Text style={styles.text}>Mentor Experience Level</Text>
-              <Text style={{ color: "#8d8d8d" }}>
-                0: Friend 1: Intermediate 2: Pro
-              </Text>
-            </View>
-
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+            <Pressable
+              onPress={() => setPersonalLevel(Math.min(2, personalLevel + 1))}
+              style={styles.button}
             >
-              <Pressable
-                onPress={() => setMentorLevel(Math.max(0, mentorLevel - 1))}
-                style={styles.button}
-              >
-                <Text>-</Text>
-              </Pressable>
-
-              <Text style={{ marginHorizontal: 10 }}>{mentorLevel}</Text>
-
-              <Pressable
-                onPress={() => setMentorLevel(Math.min(2, mentorLevel + 1))}
-                style={styles.button}
-              >
-                <Text>+</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-        <View style={styles.rowContainer}>
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
-          >
-            <View>
-              <Text style={styles.text}>Price Range</Text>
-              <Text style={{ color: "#8d8d8d", width: "70%" }}>
-                Prices may differ across experience level
-              </Text>
-            </View>
-
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <TextInput style={styles.priceInput}></TextInput>
-              <Text style={{ fontSize: 20 }}>-</Text>
-              <TextInput style={styles.priceInput}></TextInput>
-            </View>
+              <Text>+</Text>
+            </Pressable>
           </View>
         </View>
       </View>
+      <View style={styles.rowContainer}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View>
+            <Text style={styles.text}>Mentor Experience Level</Text>
+            <Text style={{ color: "#8d8d8d" }}>
+              0: Friend 1: Intermediate 2: Pro
+            </Text>
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Pressable
+              onPress={() => setMentorLevel(Math.max(0, mentorLevel - 1))}
+              style={styles.button}
+            >
+              <Text>-</Text>
+            </Pressable>
+
+            <Text style={{ marginHorizontal: 10 }}>{mentorLevel}</Text>
+
+            <Pressable
+              onPress={() => setMentorLevel(Math.min(2, mentorLevel + 1))}
+              style={styles.button}
+            >
+              <Text>+</Text>
+            </Pressable>
+          </View>
+        </View>
+      </View>
+      <View style={styles.rowContainer}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View>
+            <Text style={styles.text}>Price Range</Text>
+            <Text style={{ color: "#8d8d8d", width: "70%" }}>
+              Prices may differ across experience level
+            </Text>
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <TextInput style={styles.priceInput}></TextInput>
+            <Text style={{ fontSize: 20 }}>-</Text>
+            <TextInput style={styles.priceInput}></TextInput>
+          </View>
+        </View>
+      </View>
+
       <Pressable
         style={{
           marginBottom: "10%",
@@ -161,11 +165,11 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 16,
     fontWeight: "bold",
-    borderWidth: 3,
+    backgroundColor: "#ececec",
+    margin: 20,
+    paddingHorizontal: 30,
+    paddingVertical: 20,
     borderRadius: 20,
-    borderColor: "#AFDCEB",
-    width: "90%",
-    textAlign: "center",
   },
   button: {
     borderWidth: 1,

@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   container: {
     display: "flex",
-    padding: 20,
+    padding: 5,
   },
   textContainer: {
     flexDirection: "row",

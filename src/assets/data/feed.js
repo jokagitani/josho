@@ -7,6 +7,10 @@ export default [
     age: 40,
     rate: 45,
     star: 14,
+    coordinate: {
+      latitude: 1.3248799500000001,
+      longitude: 103.92923955857626,
+    },
   },
   {
     id: 1,
@@ -16,6 +20,10 @@ export default [
     age: 40,
     rate: 45,
     star: 10,
+    coordinate: {
+      latitude: 1.3035107,
+      longitude: 103.87279165366071,
+    },
   },
   {
     id: 2,
@@ -25,6 +33,10 @@ export default [
     age: 33,
     rate: 60,
     star: 8,
+    coordinate: {
+      latitude: 1.3367426670154177,
+      longitude: 103.79620206737681,
+    },
   },
   {
     id: 3,
@@ -34,5 +46,9 @@ export default [
     age: 45,
     rate: 5,
     star: 3,
+    coordinate: {
+      latitude: 1.3059612825830127,
+      longitude: 103.8764037601422,
+    },
   },
 ];
