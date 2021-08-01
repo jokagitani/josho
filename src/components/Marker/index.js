@@ -10,7 +10,7 @@ const CustomMarker = (props) => {
       <View
         style={{
           backgroundColor: isSelected ? "black" : "#fff",
-          borderRadius: 30,
+          borderRadius: 10,
           padding: 10,
           width: 100,
           justifyContent: "center",

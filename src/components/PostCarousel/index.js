@@ -38,8 +38,16 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     display: "flex",
     flexDirection: "row",
-    borderWidth: 1,
-    width: 300,
+    width: 350,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.43,
+    shadowRadius: 9.51,
+
+    elevation: 15,
   },
   image: {
     width: "100%",
