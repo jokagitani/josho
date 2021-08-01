@@ -54,4 +54,4 @@ buck-out/
 web-build/
 
 #Google API
-./src/screens/Details/index.js
+./src/screens/Details/*.index.js
