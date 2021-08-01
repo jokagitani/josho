@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import instructors from "../../assets/data/feed";
 import CustomMarker from "../../components/Marker";
+import PostCarousel from "../../components/PostCarousel";
 
 const SearchMaps = () => {
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState(0);
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
       <MapView
         style={{ width: "100%", height: "100%" }}
         provider={PROVIDER_GOOGLE}
@@ -29,6 +29,14 @@ const SearchMaps = () => {
           />
         ))}
       </MapView>
+      <View style={{ position: "absolute", bottom: 10 }}>
+        <FlatList
+          data={instructors}
+          renderItem={({ item }) => <PostCarousel post={item} />}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
     </View>
   );
 };
@@ -37,6 +45,8 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

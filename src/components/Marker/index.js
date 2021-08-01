@@ -14,6 +14,7 @@ const CustomMarker = (props) => {
           padding: 10,
           width: 100,
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Text
@@ -22,7 +23,10 @@ const CustomMarker = (props) => {
           ${rate}
         </Text>
         <Text
-          style={{ fontWeight: "bold", color: isSelected ? "white" : "black" }}
+          style={{
+            fontWeight: "bold",
+            color: isSelected ? "white" : "black",
+          }}
         >
           {text}
         </Text>
