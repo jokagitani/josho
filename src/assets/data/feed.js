@@ -1,6 +1,6 @@
 export default [
   {
-    id: 0,
+    id: 1,
     uri: "https://react.semantic-ui.com/images/avatar/large/chris.jpg",
     username: "Nate Archibald",
     text: "Passionate basketball instructor",
@@ -13,7 +13,7 @@ export default [
     },
   },
   {
-    id: 1,
+    id: 2,
     uri: "https://react.semantic-ui.com/images/avatar/large/patrick.png",
     username: "JJ Redick",
     text: "NBA shooting coach",
@@ -26,7 +26,7 @@ export default [
     },
   },
   {
-    id: 2,
+    id: 3,
     uri: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
     username: "Kevin Durant",
     text: "Social media head",
@@ -39,7 +39,7 @@ export default [
     },
   },
   {
-    id: 3,
+    id: 4,
     uri: "https://react.semantic-ui.com/images/avatar/large/nan.jpg",
     username: "Brian Scalabrine",
     text: "NBA GOAT",
