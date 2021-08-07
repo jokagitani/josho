@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import { useNavigation } from "@react-navigation/native";
+import RoundedButton from "../../components/RoundedButton";
 
 const HomeScreen = (props) => {
   const navigation = useNavigation();
@@ -25,15 +26,30 @@ const HomeScreen = (props) => {
         source={require("../../assets/images/clouds.jpeg")}
         style={styles.image}
       >
-        {/* title */}
-        <Text style={styles.title}>FIND YOUR LIMIT</Text>
+        <View style={{ alignItems: "center" }}>
+          <View style={{ flexDirection: "column", marginBottom: 100 }}>
+            <View style={{ flexDirection: "row", padding: 20 }}>
+              <RoundedButton name={"basketball"} title={"basketball"} />
+              <RoundedButton name={"football"} title={"football"} />
+              <RoundedButton name={"tennisball"} title={"tennis"} />
+              <RoundedButton name={"book"} title={"tuition"} />
+            </View>
+            <View style={{ flexDirection: "row", padding: 20 }}>
+              <RoundedButton name={"basketball"} title={"basketball"} />
+              <RoundedButton name={"football"} title={"football"} />
+              <RoundedButton name={"tennisball"} title={"tennis"} />
+              <RoundedButton name={"book"} title={"tuition"} />
+            </View>
+          </View>
+
+          <Pressable
+            style={styles.button}
+            onPress={() => console.warn("Explore btn clicked!")}
+          >
+            <Text style={styles.buttonText}>Explore Opportunities</Text>
+          </Pressable>
+        </View>
         {/* button */}
-        <Pressable
-          style={styles.button}
-          onPress={() => console.warn("Explore btn clicked!")}
-        >
-          <Text style={styles.buttonText}>Explore your opportunites here</Text>
-        </Pressable>
       </ImageBackground>
     </View>
   );
@@ -41,13 +57,14 @@ const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
   container: {
+    height: "100%",
     flexDirection: "column",
     alignContent: "center",
     justifyContent: "center",
   },
   image: {
     width: "100%",
-    height: 700,
+    height: 900,
     resizeMode: "cover",
     justifyContent: "center",
   },
@@ -62,33 +79,42 @@ const styles = StyleSheet.create({
     marginLeft: 30,
   },
   button: {
-    backgroundColor: "#ececec",
+    backgroundColor: "#CDEAF7",
     padding: 10,
-    width: "70%",
-    borderWidth: 1,
+    width: "80%",
     borderRadius: 10,
-    marginLeft: 25,
-    marginTop: 50,
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
   },
   buttonText: {
-    fontSize: 16,
-    textShadowColor: "blue",
-    textShadowRadius: 100,
+    fontSize: 14,
+    fontWeight: "200",
   },
   searchButton: {
     flexDirection: "row",
     backgroundColor: "#ececec",
     padding: 10,
-
     width: "80%",
     borderRadius: 40,
     marginLeft: "10%",
-    top: "20%",
+    top: "15%",
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
     zIndex: 100,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
   },
 });
 export default HomeScreen;

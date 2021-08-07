@@ -9,6 +9,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Feather from "react-native-vector-icons/Feather";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import Explore from "./Explore";
+import Instructor from "../screens/Instructor";
+import Profile from "../screens/Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -57,7 +59,7 @@ const HomeTab = () => {
       />
       <Tab.Screen
         name={"Profile"}
-        component={Home}
+        component={Profile}
         options={{
           tabBarIcon: ({ color }) => (
             <EvilIcons name="user" size={25} color={color} />

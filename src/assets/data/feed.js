@@ -4,6 +4,8 @@ export default [
     uri: "https://react.semantic-ui.com/images/avatar/large/chris.jpg",
     username: "Nate Archibald",
     text: "Passionate basketball instructor",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 40,
     rate: 45,
     star: 14,
@@ -17,6 +19,8 @@ export default [
     uri: "https://react.semantic-ui.com/images/avatar/large/patrick.png",
     username: "JJ Redick",
     text: "NBA shooting coach",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 40,
     rate: 45,
     star: 10,
@@ -30,6 +34,8 @@ export default [
     uri: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
     username: "Kevin Durant",
     text: "Social media head",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 33,
     rate: 60,
     star: 8,
@@ -43,6 +49,8 @@ export default [
     uri: "https://react.semantic-ui.com/images/avatar/large/nan.jpg",
     username: "Brian Scalabrine",
     text: "NBA GOAT",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 45,
     rate: 5,
     star: 3,

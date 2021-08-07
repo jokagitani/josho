@@ -6,7 +6,7 @@ import Interest from "../screens/Interest";
 import HomeTab from "./homeTab";
 import Details from "../screens/Details";
 import StarPage from "../screens/Page2";
-
+import Instructor from "../screens/Instructor";
 const Stack = createStackNavigator();
 
 const Router = () => {
@@ -32,6 +32,11 @@ const Router = () => {
           name={"Star Page"}
           component={StarPage}
           options={{ title: "Star Page" }}
+        />
+        <Stack.Screen
+          name={"Instructor"}
+          component={Instructor}
+          options={{ title: "Instructor" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

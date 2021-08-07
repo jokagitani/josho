@@ -1,11 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const PostCarousel = (props) => {
   const post = props.post;
-
+  const navigation = useNavigation();
+  const goToPage = () => {
+    navigation.navigate("Instructor", { postId: post.id });
+  };
   return (
-    <View style={styles.container}>
+    <Pressable onPress={goToPage} style={styles.container}>
       <View style={{ width: "20%" }}>
         <Image
           style={styles.image}
@@ -17,16 +21,15 @@ const PostCarousel = (props) => {
       <View
         style={{ width: "80%", padding: 10, justifyContent: "space-around" }}
       >
-        <Text>from ${post.rate} / hour</Text>
-
         <Text style={styles.name}>
           {post.username}
           <Text> {post.age} </Text>
         </Text>
+        <Text>from ${post.rate} / hour</Text>
 
         <Text style={styles.description}>{post.text}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
@@ -51,9 +54,9 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    aspectRatio: 4 / 5,
+    aspectRatio: 1 / 1,
     resizeMode: "cover",
-    borderRadius: 20,
+    borderRadius: 100,
   },
   name: {
     fontWeight: "bold",

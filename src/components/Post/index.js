@@ -1,68 +1,62 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 const Post = (props) => {
   const post = props.post;
+  const navigation = useNavigation();
+  const goToPage = () => {
+    navigation.navigate("Instructor", { postId: post.id });
+  };
 
   return (
-    <View style={styles.container}>
-      {/* <View style={styles.postContainer}> */}
-      {/* Image */}
-      <View style={{ display: "flex", flexDirection: "row" }}>
+    <Pressable style={styles.container} onPress={goToPage}>
+      <View
+        style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+      >
         <Image
           style={styles.image}
           source={{
             uri: post.uri,
           }}
         />
-        {/*  */}
-        {/* Rate */}
-        <Text style={{ fontSize: 24, margin: 10 }}>from ${post.rate}/hour</Text>
-      </View>
 
-      {/* Tutor name */}
-      <Text style={styles.name}>
-        {post.username}
-        <Text style={{ fontSize: 32 }}> {post.age} </Text>
-      </Text>
-      {/* Tutor description */}
-      <Text style={styles.description}>{post.text}</Text>
-      {/* </View> */}
-    </View>
+        <View style={{ width: "50%", flexDirection: "column", marginLeft: 20 }}>
+          <Text style={styles.name}>
+            {post.username}
+            <Text style={{ fontSize: 12 }}> {post.age} </Text>
+          </Text>
+          <Text style={{ fontSize: 12 }}>from ${post.rate}/hour</Text>
+          <Text style={styles.description}>{post.text}</Text>
+        </View>
+      </View>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    marginHorizontal: 10,
+    marginVertical: 2,
     padding: 10,
-    backgroundColor: "#AFDCEB",
+    backgroundColor: "#fff",
     borderRadius: 20,
     display: "flex",
   },
-  //   postContainer: {
-  //     flex: 1,
-  //     display: "flex",
-  //     flexDirection: "row",
-  //     justifyContent: "center",
-  //     alignItems: "center",
-  //   },
+
   image: {
-    width: "40%",
-    aspectRatio: 3 / 2,
+    width: "20%",
+    aspectRatio: 1 / 1,
     resizeMode: "cover",
-    borderRadius: 20,
+    borderRadius: 100,
   },
   name: {
-    margin: 5,
-    fontSize: 36,
+    fontSize: 16,
     fontWeight: "bold",
     textShadowColor: "#AFDCEB",
     textShadowRadius: 10,
   },
   description: {
-    margin: 5,
-    fontSize: 24,
+    fontSize: 12,
     textShadowColor: "#AFDCEB",
     textShadowRadius: 10,
   },
