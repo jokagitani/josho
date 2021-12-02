@@ -1,19 +1,33 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../screens/Home";
 import MyFitnessPal from "../screens/MyFitnessPal";
 import SearchResults from "../screens/SearchResults";
-import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Message from "../screens/Messages";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Feather from "react-native-vector-icons/Feather";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import Explore from "./Explore";
-import Instructor from "../screens/Instructor";
 import Profile from "../screens/Profile";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+const StackMessage = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Messages" component={Message} options={{}} />
+    </Stack.Navigator>
+  );
+};
 
+const StackSearchResults = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Top Search" component={SearchResults} />
+    </Stack.Navigator>
+  );
+};
 const HomeTab = () => {
   return (
     <Tab.Navigator
@@ -22,7 +36,7 @@ const HomeTab = () => {
       }}
     >
       <Tab.Screen
-        name={"Explore"}
+        name="Explore"
         component={Explore}
         options={{
           tabBarIcon: ({ color }) => (
@@ -31,7 +45,7 @@ const HomeTab = () => {
         }}
       />
       <Tab.Screen
-        name={"MyFitnessPal"}
+        name="MyFitnessPal"
         component={MyFitnessPal}
         options={{
           tabBarIcon: ({ color }) => (
@@ -40,8 +54,8 @@ const HomeTab = () => {
         }}
       />
       <Tab.Screen
-        name={"Browse"}
-        component={SearchResults}
+        name="Browse"
+        component={StackSearchResults}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="grid-sharp" size={25} color={color} />
@@ -49,8 +63,8 @@ const HomeTab = () => {
         }}
       />
       <Tab.Screen
-        name={"Messages"}
-        component={Home}
+        name="Messages"
+        component={StackMessage}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name="message-square" size={25} color={color} />
@@ -58,7 +72,7 @@ const HomeTab = () => {
         }}
       />
       <Tab.Screen
-        name={"Profile"}
+        name="Profile"
         component={Profile}
         options={{
           tabBarIcon: ({ color }) => (
