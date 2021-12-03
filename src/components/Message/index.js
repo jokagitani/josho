@@ -1,36 +1,35 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-const Post = (props) => {
-  const post = props.post;
+const Message = (props) => {
+  const msg = props.msg;
   const navigation = useNavigation();
   const goToPage = () => {
-    navigation.navigate("Instructor", { postId: post.id });
+    navigation.navigate("Chat", {
+      msgId: msg.id,
+      title: msg.username,
+      uri: msg.uri,
+    });
   };
 
   return (
     <Pressable style={styles.container} onPress={goToPage}>
       <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-        }}
+        style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
         <Image
           style={styles.image}
           source={{
-            uri: post.uri,
+            uri: msg.uri,
           }}
         />
 
-        <View style={{ width: "50%", flexDirection: "column", marginLeft: 20 }}>
+        <View style={{ width: "70%", flexDirection: "column", marginLeft: 20 }}>
           <Text style={styles.name}>
-            {post.username}
-            <Text style={{ fontSize: 12 }}> {post.age} </Text>
+            {msg.username}
+            <Text style={{ fontSize: 12 }}> {msg.age} </Text>
           </Text>
-          <Text style={{ fontSize: 12 }}>from ${post.rate}/hour</Text>
-          <Text style={styles.description}>{post.text}</Text>
+          <Text style={styles.description}>{msg.text}</Text>
         </View>
       </View>
     </Pressable>
@@ -66,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Post;
+export default Message;

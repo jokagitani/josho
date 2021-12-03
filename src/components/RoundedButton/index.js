@@ -14,13 +14,13 @@ const RoundedButton = ({ name, title }) => {
 const styles = StyleSheet.create({
   roundButton: {
     backgroundColor: "white",
-
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 5,
     width: "22%",
     aspectRatio: 1 / 1,
+    padding: 10,
   },
 });
 export default RoundedButton;

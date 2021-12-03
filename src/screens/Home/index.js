@@ -34,7 +34,7 @@ const HomeScreen = (props) => {
               <RoundedButton name={"tennisball"} title={"tennis"} />
               <RoundedButton name={"book"} title={"tuition"} />
             </View>
-            <View style={{ flexDirection: "row", padding: 20 }}>
+            <View style={{ flexDirection: "row", padding: 10 }}>
               <RoundedButton name={"basketball"} title={"basketball"} />
               <RoundedButton name={"football"} title={"football"} />
               <RoundedButton name={"tennisball"} title={"tennis"} />

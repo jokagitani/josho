@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MyFitnessPal from "../screens/MyFitnessPal";
 import SearchResults from "../screens/SearchResults";
@@ -10,13 +11,20 @@ import EvilIcons from "react-native-vector-icons/EvilIcons";
 import Explore from "./Explore";
 import Profile from "../screens/Profile";
 import { createStackNavigator } from "@react-navigation/stack";
+import SearchButton from "../components/SearchButton";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 const StackMessage = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Messages" component={Message} options={{}} />
+      <Stack.Screen
+        name="Messages"
+        component={Message}
+        options={{
+          headerRight: ({ color }) => <SearchButton color={color} />,
+        }}
+      />
     </Stack.Navigator>
   );
 };

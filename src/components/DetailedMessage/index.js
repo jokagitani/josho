@@ -9,28 +9,15 @@ import {
 } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useNavigation } from "@react-navigation/core";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import ChatBubble from "../ChatBubble";
 
-const Post = (props) => {
-  const post = props.post;
-  const navigation = useNavigation();
-  const goToPage = () => {
-    navigation.setParams({ title: post.username });
-    navigation.navigate("Chat", { msgId: post.id });
-  };
+const DetailedMessage = (props) => {
+  const msg = props.msg;
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={{ height: "100%" }}>
       <View style={styles.container}>
-        <View>
-          <Image
-            style={styles.image}
-            source={{
-              uri: post.uri,
-            }}
-          />
-        </View>
-
         <View
           style={{
             margin: 20,
@@ -40,19 +27,20 @@ const Post = (props) => {
             borderBottomColor: "#ececec",
           }}
         >
+          <ChatBubble />
           <View style={{ flexDirection: "row", alignItems: "baseline" }}>
-            <Text style={styles.name}>{post.username}</Text>
-            <Text style={styles.age}>{post.age}</Text>
+            <Text style={styles.name}>{msg.username}</Text>
+            <Text style={styles.age}>{msg.age}</Text>
           </View>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "column", width: "40%" }}>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Entypo name={"briefcase"} size={12} color={"grey"} />
-                <Text style={styles.description}>{post.text}</Text>
+                <Text style={styles.description}>{msg.text}</Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Ionicons name={"md-pricetag"} size={12} color={"grey"} />
-                <Text style={styles.rate}>${post.rate} / hour</Text>
+                <Text style={styles.rate}>${msg.rate} / hour</Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <View
@@ -74,7 +62,12 @@ const Post = (props) => {
                 alignItems: "center",
               }}
             >
-              <Pressable style={styles.enquireButton} onPress={goToPage}>
+              <Pressable
+                style={styles.enquireButton}
+                onPress={() => {
+                  console.warn("hello");
+                }}
+              >
                 <Text
                   style={{
                     fontSize: 20,
@@ -94,7 +87,7 @@ const Post = (props) => {
             justifyContent: "space-around",
           }}
         >
-          <Text style={styles.longDescription}>{post.description}</Text>
+          <Text style={styles.longDescription}>{msg.description}</Text>
         </View>
       </View>
     </ScrollView>
@@ -103,8 +96,7 @@ const Post = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
   },
 
   image: {
@@ -148,4 +140,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Post;
+export default DetailedMessage;

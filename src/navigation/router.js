@@ -7,6 +7,10 @@ import HomeTab from "./homeTab";
 import Details from "../screens/Details";
 import StarPage from "../screens/Page2";
 import Instructor from "../screens/Instructor";
+import Chat from "../screens/Chat";
+import Messages from "../screens/Messages";
+import ChatIcon from "../components/ChatIcon";
+
 const Stack = createStackNavigator();
 
 const Router = () => {
@@ -38,6 +42,15 @@ const Router = () => {
           component={Instructor}
           options={{ title: "Instructor" }}
         />
+        <Stack.Screen
+          name={"Chat"}
+          component={Chat}
+          options={({ route }) => ({
+            headerTitle: route.params.title,
+            headerRight: () => <ChatIcon uri={route.params.uri} />,
+          })}
+        />
+        <Stack.Screen name={"Messages"} component={Messages} />
       </Stack.Navigator>
     </NavigationContainer>
   );
