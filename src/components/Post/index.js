@@ -9,7 +9,10 @@ const Post = (props) => {
   };
 
   return (
-    <Pressable style={styles.container} onPress={goToPage}>
+    <Pressable
+      style={[{ width: props.width }, styles.container]}
+      onPress={goToPage}
+    >
       <View
         style={{
           display: "flex",
@@ -24,7 +27,7 @@ const Post = (props) => {
           }}
         />
 
-        <View style={{ width: "50%", flexDirection: "column", marginLeft: 20 }}>
+        <View style={{ width: 200, flexDirection: "column", marginLeft: 20 }}>
           <Text style={styles.name}>
             {post.username}
             <Text style={{ fontSize: 12 }}> {post.age} </Text>
@@ -39,16 +42,26 @@ const Post = (props) => {
 
 const styles = StyleSheet.create({
   container: {
+    height: 100,
     marginHorizontal: 10,
     marginVertical: 2,
-    padding: 10,
+    padding: 20,
     backgroundColor: "#fff",
     borderRadius: 20,
     display: "flex",
+    alignSelf: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 1,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
 
   image: {
-    width: "20%",
+    width: 50,
     aspectRatio: 1 / 1,
     resizeMode: "cover",
     borderRadius: 100,

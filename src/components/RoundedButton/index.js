@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet, Image } from "react-native";
+import CustomText from "../../components/CustomText";
 
 const RoundedButton = ({ item, size }) => {
   return (
@@ -23,16 +24,7 @@ const RoundedButton = ({ item, size }) => {
           />
         </View>
       </Pressable>
-      <Text
-        style={{
-          fontSize: 15,
-          fontWeight: "800",
-          color: "grey",
-          alignSelf: "center",
-        }}
-      >
-        {item.name.toUpperCase()}
-      </Text>
+      <CustomText size={size / 4}>{item.name}</CustomText>
     </View>
   );
 };

@@ -12,6 +12,9 @@ import { useNavigation } from "@react-navigation/native";
 import RoundedButton from "../../components/RoundedButton";
 import { ScrollView } from "react-native-gesture-handler";
 import categories from "../../assets/data/categories";
+import feed from "../../assets/data/feed";
+import Post from "../../components/Post";
+import CustomText from "../../components/CustomText";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -30,26 +33,8 @@ const HomeScreen = () => {
           <Fontisto name="search" size={25} color={"#808080"} />
           <Text style={styles.buttonText}> What are you looking to learn?</Text>
         </Pressable>
-        <View
-          style={{
-            position: "absolute",
-            top: "22%",
-            height: 200,
-            width: "90%",
-            alignSelf: "center",
-            backgroundColor: "white",
-            opacity: 0.7,
-          }}
-        />
-        <View
-          style={{
-            flexDirection: "column",
-            position: "absolute",
-            top: "20%",
-            alignItems: "center",
-            alignSelf: "center",
-          }}
-        >
+        <View style={styles.backGroundView} />
+        <View style={styles.iconView}>
           <FlatList
             contentContainerStyle={{
               flexDirection: "row",
@@ -71,15 +56,16 @@ const HomeScreen = () => {
             keyExtractor={(item) => item.id}
           />
         </View>
-
-        <Pressable
-          style={styles.button}
-          onPress={() => console.warn("Explore btn clicked!")}
-        >
-          <Text style={styles.buttonText}>Explore Opportunities</Text>
-        </Pressable>
-
-        {/* button */}
+        <View style={{ position: "absolute", top: "50%" }}>
+          <CustomText left={10} size={20} bottom={10}>
+            Reccomended for you
+          </CustomText>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {feed.map((inst) => {
+              return <Post post={inst} width={300} />;
+            })}
+          </ScrollView>
+        </View>
       </ImageBackground>
     </ScrollView>
   );
@@ -125,6 +111,22 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 14,
     fontWeight: "200",
+  },
+  iconView: {
+    flexDirection: "column",
+    position: "absolute",
+    top: "20%",
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  backGroundView: {
+    position: "absolute",
+    top: "23%",
+    height: 200,
+    width: "90%",
+    alignSelf: "center",
+    backgroundColor: "white",
+    opacity: 0.7,
   },
   searchButton: {
     flexDirection: "row",
