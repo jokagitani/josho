@@ -16,7 +16,11 @@ const Post = (props) => {
   const navigation = useNavigation();
   const goToPage = () => {
     navigation.setParams({ title: post.username });
-    navigation.navigate("Chat", { msgId: post.id });
+    navigation.navigate("Chat", {
+      msgId: post.id,
+      title: post.username,
+      uri: post.uri,
+    });
   };
 
   return (

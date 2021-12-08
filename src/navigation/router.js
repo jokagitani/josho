@@ -47,7 +47,9 @@ const Router = () => {
           component={Chat}
           options={({ route }) => ({
             headerTitle: route.params.title,
-            headerRight: () => <ChatIcon uri={route.params.uri} />,
+            headerRight: () => (
+              <ChatIcon uri={route.params.uri} postId={route.params.msgId} />
+            ),
           })}
         />
         <Stack.Screen name={"Messages"} component={Messages} />

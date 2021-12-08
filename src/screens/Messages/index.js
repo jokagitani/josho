@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, ScrollView } from "react-native";
 import Message from "../../components/Message";
-import feed from "../../assets/data/feed";
+import chat from "../../assets/data/chat";
 
 const Messages = (props) => {
   return (
@@ -13,9 +13,9 @@ const Messages = (props) => {
       }}
     >
       <FlatList
-        data={feed}
+        data={chat}
         renderItem={({ item }) => <Message msg={item} />}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.instructor.id.toString()}
       />
     </ScrollView>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 
-const ChatBubble = () => {
+const ChatBubble = (props) => {
+  const content = props.content;
   return (
     <View
       style={{
@@ -12,12 +13,12 @@ const ChatBubble = () => {
         //marginBottom: 15,
         marginTop: 5,
         marginRight: "5%",
-        maxWidth: "50%",
+        maxWidth: "100%",
         alignSelf: "flex-end",
         //maxWidth: 500,
       }}
     >
-      <Text style={{ fontSize: 16, color: "#fff" }}>hello</Text>
+      <Text style={{ fontSize: 16, color: "#fff" }}>{content}</Text>
 
       <View style={styles.rightArrow}></View>
 

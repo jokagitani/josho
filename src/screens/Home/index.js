@@ -5,61 +5,90 @@ import {
   StyleSheet,
   ImageBackground,
   Pressable,
+  FlatList,
 } from "react-native";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import { useNavigation } from "@react-navigation/native";
 import RoundedButton from "../../components/RoundedButton";
+import { ScrollView } from "react-native-gesture-handler";
+import categories from "../../assets/data/categories";
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
   const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
-      {/* search bar */}
-      <Pressable
-        style={styles.searchButton}
-        onPress={() => navigation.navigate("Interest")}
-      >
-        <Fontisto name="search" size={25} color={"#808080"} />
-        <Text style={styles.buttonText}> What are you looking to learn?</Text>
-      </Pressable>
+    <ScrollView contentContainerStyle={styles.container}>
       <ImageBackground
         source={require("../../assets/images/clouds.jpeg")}
         style={styles.image}
       >
-        <View style={{ alignItems: "center" }}>
-          <View style={{ flexDirection: "column", marginBottom: 100 }}>
-            <View style={{ flexDirection: "row", padding: 20 }}>
-              <RoundedButton name={"basketball"} title={"basketball"} />
-              <RoundedButton name={"football"} title={"football"} />
-              <RoundedButton name={"tennisball"} title={"tennis"} />
-              <RoundedButton name={"book"} title={"tuition"} />
-            </View>
-            <View style={{ flexDirection: "row", padding: 10 }}>
-              <RoundedButton name={"basketball"} title={"basketball"} />
-              <RoundedButton name={"football"} title={"football"} />
-              <RoundedButton name={"tennisball"} title={"tennis"} />
-              <RoundedButton name={"book"} title={"tuition"} />
-            </View>
-          </View>
+        {/* search bar */}
+        <Pressable
+          style={styles.searchButton}
+          onPress={() => navigation.navigate("Interest")}
+        >
+          <Fontisto name="search" size={25} color={"#808080"} />
+          <Text style={styles.buttonText}> What are you looking to learn?</Text>
+        </Pressable>
+        <View
+          style={{
+            position: "absolute",
+            top: "22%",
+            height: 200,
+            width: "90%",
+            alignSelf: "center",
+            backgroundColor: "white",
+            opacity: 0.7,
+          }}
+        />
+        <View
+          style={{
+            flexDirection: "column",
+            position: "absolute",
+            top: "20%",
+            alignItems: "center",
+            alignSelf: "center",
+          }}
+        >
+          <FlatList
+            contentContainerStyle={{
+              flexDirection: "row",
+              alignSelf: "center",
+              marginBottom: 20,
+            }}
+            data={categories.slice(0, 4)}
+            renderItem={({ item }) => <RoundedButton item={item} size={80} />}
+            keyExtractor={(item) => item.id}
+          />
 
-          <Pressable
-            style={styles.button}
-            onPress={() => console.warn("Explore btn clicked!")}
-          >
-            <Text style={styles.buttonText}>Explore Opportunities</Text>
-          </Pressable>
+          <FlatList
+            contentContainerStyle={{
+              flexDirection: "row",
+              alignSelf: "center",
+            }}
+            data={categories.slice(4)}
+            renderItem={({ item }) => <RoundedButton item={item} size={60} />}
+            keyExtractor={(item) => item.id}
+          />
         </View>
+
+        <Pressable
+          style={styles.button}
+          onPress={() => console.warn("Explore btn clicked!")}
+        >
+          <Text style={styles.buttonText}>Explore Opportunities</Text>
+        </Pressable>
+
         {/* button */}
       </ImageBackground>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    flexDirection: "column",
-    alignContent: "center",
+    alignContent: "flex-start",
     justifyContent: "center",
   },
   image: {
@@ -68,6 +97,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
   },
+
   title: {
     fontSize: 70,
     fontWeight: "bold",
@@ -83,7 +113,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "80%",
     borderRadius: 10,
-    alignItems: "center",
+    alignSelf: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -103,7 +133,7 @@ const styles = StyleSheet.create({
     width: "80%",
     borderRadius: 40,
     marginLeft: "10%",
-    top: "15%",
+    top: "12%",
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
@@ -111,10 +141,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 6,
+      height: 2,
     },
     shadowOpacity: 0.5,
-    shadowRadius: 5,
+    shadowRadius: 2,
   },
 });
 export default HomeScreen;

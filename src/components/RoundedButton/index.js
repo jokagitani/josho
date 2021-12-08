@@ -1,13 +1,39 @@
 import React from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { View, Text, Pressable, StyleSheet, Image } from "react-native";
 
-const RoundedButton = ({ name, title }) => {
+const RoundedButton = ({ item, size }) => {
   return (
-    <Pressable style={styles.roundButton}>
-      <Ionicons name={name} size={40} color={"#CDEAF7"} />
-      <Text style={{ fontSize: 12, color: "grey" }}>{title}</Text>
-    </Pressable>
+    <View
+      style={{
+        alignItems: "center",
+        justifyContent: "center",
+        marginHorizontal: (1 / size) ** 2 * 50000,
+      }}
+    >
+      <Pressable
+        style={[
+          styles.roundButton,
+          { width: size, backgroundColor: item.color },
+        ]}
+      >
+        <View style={{ height: size * 0.6 }}>
+          <Image
+            style={[styles.image, { height: size * 0.6 }]}
+            source={item.uri}
+          />
+        </View>
+      </Pressable>
+      <Text
+        style={{
+          fontSize: 15,
+          fontWeight: "800",
+          color: "grey",
+          alignSelf: "center",
+        }}
+      >
+        {item.name.toUpperCase()}
+      </Text>
+    </View>
   );
 };
 
@@ -15,12 +41,22 @@ const styles = StyleSheet.create({
   roundButton: {
     backgroundColor: "white",
     borderRadius: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 5,
-    width: "22%",
-    aspectRatio: 1 / 1,
     padding: 10,
+    aspectRatio: 1 / 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+  image: {
+    height: 40,
+    aspectRatio: 1 / 1,
   },
 });
 export default RoundedButton;

@@ -6,9 +6,9 @@ const Message = (props) => {
   const navigation = useNavigation();
   const goToPage = () => {
     navigation.navigate("Chat", {
-      msgId: msg.id,
-      title: msg.username,
-      uri: msg.uri,
+      msgId: msg.instructor.id,
+      title: msg.instructor.username,
+      uri: msg.instructor.uri,
     });
   };
 
@@ -20,13 +20,13 @@ const Message = (props) => {
         <Image
           style={styles.image}
           source={{
-            uri: msg.uri,
+            uri: msg.instructor.uri,
           }}
         />
 
         <View style={{ width: "70%", flexDirection: "column", marginLeft: 20 }}>
           <Text style={styles.name}>
-            {msg.username}
+            {msg.instructor.username}
             <Text style={{ fontSize: 12 }}> {msg.age} </Text>
           </Text>
           <Text style={styles.description}>{msg.text}</Text>

@@ -1,15 +1,21 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 
 const ChatIcon = (props) => {
   const uri = props.uri;
+  const id = props.postId;
+  const navigation = useNavigation();
+  const goToPage = () => {
+    navigation.navigate("Instructor", { postId: id });
+  };
   return (
-    <View style={{ padding: 30 }}>
+    <Pressable style={{ padding: 30 }} onPress={goToPage}>
       <Image
         style={{ width: 40, height: 40, borderRadius: 50 }}
         source={{ uri }}
       />
-    </View>
+    </Pressable>
   );
 };
 
