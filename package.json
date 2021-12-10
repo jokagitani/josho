@@ -24,16 +24,19 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-google-places-autocomplete": "^2.2.0",
     "react-native-maps": "0.28.0",
-    "react-native-pager-view": "^5.4.0",
+    "react-native-pager-view": "^5.4.9",
+    "react-native-ratings": "^8.1.0",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.4.0",
+    "react-native-svg": "^12.1.1",
     "react-native-tab-view": "^3.0.1",
     "react-native-tabs": "^1.0.9",
     "react-native-unimodules": "~0.14.5",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
-    "rn-range-slider": "^2.0.4"
+    "rn-range-slider": "^2.0.4",
+    "rn-viewpager": "^1.2.9"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

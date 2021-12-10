@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Pressable,
   FlatList,
+  Dimensions,
 } from "react-native";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import { useNavigation } from "@react-navigation/native";
@@ -15,9 +16,14 @@ import categories from "../../assets/data/categories";
 import feed from "../../assets/data/feed";
 import Post from "../../components/Post";
 import CustomText from "../../components/CustomText";
-
+import PagerView from "react-native-pager-view";
+import Review from "../../components/Review";
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const windowWidth = Dimensions.get("window").width;
+  const sortedFeed = [...feed]
+    .sort((a, b) => a.star - b.star)
+    .slice(feed.length - 3);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -56,15 +62,76 @@ const HomeScreen = () => {
             keyExtractor={(item) => item.id}
           />
         </View>
+
         <View style={{ position: "absolute", top: "50%" }}>
           <CustomText left={10} size={20} bottom={10}>
-            Reccomended for you
+            reccomended for you
           </CustomText>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {feed.map((inst) => {
               return <Post post={inst} width={300} />;
             })}
           </ScrollView>
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            top: "70%",
+          }}
+        >
+          <CustomText left={10} size={20} bottom={10}>
+            top reviews
+          </CustomText>
+          <PagerView
+            style={{
+              width: windowWidth,
+              height: 120,
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 1,
+                height: 2,
+              },
+              shadowOpacity: 0.5,
+              shadowRadius: 5,
+            }}
+            initialPage={0}
+            showPageIndicator
+          >
+            <View
+              key="1"
+              style={{
+                backgroundColor: "white",
+                borderRadius: 50,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Review instructor={sortedFeed[2]} />
+            </View>
+
+            <View
+              key="2"
+              style={{
+                backgroundColor: "white",
+                borderRadius: 50,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Review instructor={sortedFeed[1]} />
+            </View>
+            <View
+              key="3"
+              style={{
+                backgroundColor: "white",
+                borderRadius: 50,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Review instructor={sortedFeed[0]} />
+            </View>
+          </PagerView>
         </View>
       </ImageBackground>
     </ScrollView>

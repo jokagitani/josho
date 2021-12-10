@@ -9,7 +9,7 @@ export default [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 40,
     rate: 45,
-    star: 14,
+    star: 4.7,
     coordinate: {
       latitude: 1.3248799500000001,
       longitude: 103.92923955857626,
@@ -25,7 +25,7 @@ export default [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 40,
     rate: 45,
-    star: 10,
+    star: 5.0,
     coordinate: {
       latitude: 1.3035107,
       longitude: 103.87279165366071,
@@ -41,7 +41,7 @@ export default [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 33,
     rate: 60,
-    star: 8,
+    star: 4.9,
     coordinate: {
       latitude: 1.3367426670154177,
       longitude: 103.79620206737681,
@@ -57,7 +57,7 @@ export default [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 45,
     rate: 5,
-    star: 3,
+    star: 3.2,
     coordinate: {
       latitude: 1.3059612825830127,
       longitude: 103.8764037601422,
@@ -72,8 +72,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 28,
-    rate: 5,
-    star: 4,
+    rate: 25,
+    star: 4.3,
     coordinate: {
       latitude: 1.4059612825830127,
       longitude: 106.8764037601422,
@@ -88,8 +88,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 30,
-    rate: 5,
-    star: 5,
+    rate: 50,
+    star: 4.8,
     coordinate: {
       latitude: 1.8059612825830127,
       longitude: 103.8764037601422,
@@ -104,8 +104,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 50,
-    rate: 4,
-    star: 4,
+    rate: 40,
+    star: 4.5,
     coordinate: {
       latitude: 1.5059612825830127,
       longitude: 105.8764037601422,
@@ -120,8 +120,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 25,
-    rate: 5,
-    star: 4,
+    rate: 35,
+    star: 3.9,
     coordinate: {
       latitude: 1.2059612825830127,
       longitude: 102.8764037601422,
@@ -136,8 +136,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 45,
-    rate: 5,
-    star: 3,
+    rate: 45,
+    star: 4.7,
     coordinate: {
       latitude: 1.3059612825830127,
       longitude: 103.8764037601422,
@@ -152,8 +152,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 60,
-    rate: 3,
-    star: 3,
+    rate: 20,
+    star: 3.1,
     coordinate: {
       latitude: 1.4559612825830127,
       longitude: 104.8764037601422,
@@ -168,8 +168,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 45,
-    rate: 4,
-    star: 5,
+    rate: 40,
+    star: 3.6,
     coordinate: {
       latitude: 1.546312825830127,
       longitude: 104.1234037601422,
@@ -184,8 +184,8 @@ export default [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 29,
-    rate: 3,
-    star: 3,
+    rate: 30,
+    star: 2.8,
     coordinate: {
       latitude: 1.5259612825830127,
       longitude: 107.4564037601422,

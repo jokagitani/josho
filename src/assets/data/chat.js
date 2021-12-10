@@ -3,6 +3,7 @@ export default [
     instructor: {
       id: "u2",
       username: "JJ Redick",
+      text: "NBA shooting coach",
       uri: "https://react.semantic-ui.com/images/avatar/large/patrick.png",
     },
 
@@ -49,6 +50,7 @@ export default [
     instructor: {
       id: "u3",
       username: "Kevin Durant",
+      text: "Social media head",
       uri: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
     },
 

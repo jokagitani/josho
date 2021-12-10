@@ -9,6 +9,7 @@ const Message = (props) => {
       msgId: msg.instructor.id,
       title: msg.instructor.username,
       uri: msg.instructor.uri,
+      text: msg.instructor.text,
     });
   };
 

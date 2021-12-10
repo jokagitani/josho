@@ -6,14 +6,18 @@ import {
   Image,
   ScrollView,
   Pressable,
+  Dimensions,
 } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/core";
+import { Rating } from "react-native-ratings";
+import PagerView from "react-native-pager-view";
 
 const Post = (props) => {
   const post = props.post;
   const navigation = useNavigation();
+  const windowWidth = Dimensions.get("window").width;
   const goToPage = () => {
     navigation.setParams({ title: post.username });
     navigation.navigate("Chat", {
@@ -27,12 +31,58 @@ const Post = (props) => {
     <ScrollView>
       <View style={styles.container}>
         <View>
-          <Image
-            style={styles.image}
-            source={{
-              uri: post.uri,
+          <PagerView
+            style={{
+              width: windowWidth,
+              aspectRatio: 1 / 1,
             }}
-          />
+            initialPage={0}
+            showPageIndicator
+          >
+            <View
+              key="1"
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                style={styles.image}
+                source={{
+                  uri: post.uri,
+                }}
+              />
+            </View>
+
+            <View
+              key="2"
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                style={styles.image}
+                source={{
+                  uri: post.uri,
+                }}
+              />
+            </View>
+            <View
+              key="3"
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                style={styles.image}
+                source={{
+                  uri: post.uri,
+                }}
+              />
+            </View>
+          </PagerView>
         </View>
 
         <View
@@ -52,7 +102,7 @@ const Post = (props) => {
             <View style={{ flexDirection: "column", width: "40%" }}>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Entypo name={"briefcase"} size={12} color={"grey"} />
-                <Text style={styles.description}>{post.text}</Text>
+                <Text style={styles.description}>{post.genre}</Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Ionicons name={"md-pricetag"} size={12} color={"grey"} />
@@ -67,7 +117,7 @@ const Post = (props) => {
                 >
                   <Ionicons name={"star"} size={16} color={"gold"} />
 
-                  <Text style={styles.rate}>4.2</Text>
+                  <Text style={styles.rate}>{post.star}</Text>
                 </View>
               </View>
             </View>
@@ -100,6 +150,12 @@ const Post = (props) => {
         >
           <Text style={styles.longDescription}>{post.description}</Text>
         </View>
+        <Rating
+          showRating
+          onFinishRating={this.ratingCompleted}
+          style={{ paddingVertical: 10 }}
+          fractions={1}
+        />
       </View>
     </ScrollView>
   );
@@ -115,7 +171,7 @@ const styles = StyleSheet.create({
     width: "100%",
     aspectRatio: 1 / 1,
     resizeMode: "cover",
-    borderRadius: 20,
+    //borderRadius: 20,
   },
   name: {
     fontSize: 36,

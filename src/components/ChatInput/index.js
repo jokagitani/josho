@@ -6,7 +6,6 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
 } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { TextInput } from "react-native-gesture-handler";
 import Feather from "react-native-vector-icons/Feather";
 
