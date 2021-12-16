@@ -26,6 +26,11 @@ const Post = (props) => {
       uri: post.uri,
     });
   };
+  const goToStarRating = () => {
+    navigation.navigate("CustomerReview", {
+      userId: post.id,
+    });
+  };
 
   return (
     <ScrollView>
@@ -109,7 +114,8 @@ const Post = (props) => {
                 <Text style={styles.rate}>${post.rate} / hour</Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <View
+                <Pressable
+                  onPress={goToStarRating}
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
@@ -118,7 +124,7 @@ const Post = (props) => {
                   <Ionicons name={"star"} size={16} color={"gold"} />
 
                   <Text style={styles.rate}>{post.star}</Text>
-                </View>
+                </Pressable>
               </View>
             </View>
             <View

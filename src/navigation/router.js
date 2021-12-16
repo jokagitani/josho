@@ -9,6 +9,7 @@ import StarPage from "../screens/Page2";
 import Instructor from "../screens/Instructor";
 import Chat from "../screens/Chat";
 import Messages from "../screens/Messages";
+import CustomerReview from "../screens/CustomerReview/index.js";
 import ChatIcon from "../components/ChatIcon";
 
 const Stack = createStackNavigator();
@@ -51,6 +52,11 @@ const Router = () => {
               <ChatIcon uri={route.params.uri} postId={route.params.msgId} />
             ),
           })}
+        />
+        <Stack.Screen
+          name={"CustomerReview"}
+          component={CustomerReview}
+          options={{ title: "Customer Review" }}
         />
         <Stack.Screen name={"Messages"} component={Messages} />
       </Stack.Navigator>

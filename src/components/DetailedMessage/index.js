@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
     // marginLeft: "auto",
     borderRadius: 10,
     flexDirection: "row",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 1,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
   message: {
     fontSize: 15,

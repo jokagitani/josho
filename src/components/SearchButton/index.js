@@ -39,13 +39,7 @@ const SearchButton = ({ color }) => {
                 placeholder="Search for your interest!"
                 value={inputText}
                 onChangeText={setInputText}
-              ></TextInput>
-              {/* <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <AntDesign name="close" size={25} color={color} />
-            </Pressable> */}
+              />
             </View>
           </TouchableOpacity>
         </Modal>

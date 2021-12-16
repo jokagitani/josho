@@ -4,6 +4,7 @@ export default [
     uri: "https://react.semantic-ui.com/images/avatar/large/chris.jpg",
     username: "Nate Archibald",
     text: "Passionate basketball instructor",
+    type: "Sports",
     genre: "Basketball",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -14,12 +15,22 @@ export default [
       latitude: 1.3248799500000001,
       longitude: 103.92923955857626,
     },
+    review: [
+      {
+        userId: "learner1",
+        username: "learner one",
+        star: 5,
+        uri: require("../../assets/images/icon/user.png"),
+        content: "Had a wonderful time learning the fundamentals of basketball",
+      },
+    ],
   },
   {
     id: "u2",
     uri: "https://react.semantic-ui.com/images/avatar/large/patrick.png",
     username: "JJ Redick",
     text: "NBA shooting coach",
+    type: "Sports",
     genre: "Basketball",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -30,13 +41,15 @@ export default [
       latitude: 1.3035107,
       longitude: 103.87279165366071,
     },
+    review: [],
   },
   {
     id: "u3",
     uri: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
     username: "Kevin Durant",
     text: "Social media head",
-    genre: "Tuition",
+    type: "Tuition",
+    genre: "Social Media",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 33,
@@ -46,12 +59,14 @@ export default [
       latitude: 1.3367426670154177,
       longitude: 103.79620206737681,
     },
+    review: [],
   },
   {
     id: "u4",
     uri: "https://react.semantic-ui.com/images/avatar/large/nan.jpg",
     username: "Brian Scalabrine",
     text: "NBA GOAT",
+    type: "Sports",
     genre: "Tuition",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -62,12 +77,14 @@ export default [
       latitude: 1.3059612825830127,
       longitude: 103.8764037601422,
     },
+    review: [],
   },
   {
     id: "u5",
     uri: "https://semantic-ui.com/images/avatar/large/christian.jpg",
     username: "Federico Bernadeschi",
     text: "Fashion Baller",
+    type: "Sports",
     genre: "Football",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -78,12 +95,14 @@ export default [
       latitude: 1.4059612825830127,
       longitude: 106.8764037601422,
     },
+    review: [],
   },
   {
     id: "u6",
     uri: "https://semantic-ui.com/images/avatar/large/daniel.jpg",
     username: "Rodger Federer",
     text: "Spanish Prodigy",
+    type: "Sports",
     genre: "Tennis",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -94,13 +113,15 @@ export default [
       latitude: 1.8059612825830127,
       longitude: 103.8764037601422,
     },
+    review: [],
   },
   {
     id: "u7",
     uri: "https://react.semantic-ui.com/images/avatar/large/elliot.jpg",
     username: "Jack Ma",
     text: "Square Face",
-    genre: "Tuition",
+    type: "Tuition",
+    genre: "Consultant",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     age: 50,
@@ -110,12 +131,14 @@ export default [
       latitude: 1.5059612825830127,
       longitude: 105.8764037601422,
     },
+    review: [],
   },
   {
     id: "u8",
     uri: "https://react.semantic-ui.com/images/avatar/large/helen.jpg",
     username: "Naomi Osaka",
-    text: "Spiritual Serve",
+    type: "Sports",
+    text: "Serotonin",
     genre: "Tennis",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -126,12 +149,14 @@ export default [
       latitude: 1.2059612825830127,
       longitude: 102.8764037601422,
     },
+    review: [],
   },
   {
     id: "u9",
     uri: "https://react.semantic-ui.com/images/avatar/large/jenny.jpg",
     username: "Kobe Bryant",
     text: "Mamba Great",
+    type: "Sports",
     genre: "Basketball",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -142,12 +167,14 @@ export default [
       latitude: 1.3059612825830127,
       longitude: 103.8764037601422,
     },
+    review: [],
   },
   {
     id: "u10",
     uri: "https://react.semantic-ui.com/images/avatar/large/joe.jpg",
     username: "Harry Maguire",
     text: "Attacking Defender",
+    type: "Sports",
     genre: "Football",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -158,12 +185,14 @@ export default [
       latitude: 1.4559612825830127,
       longitude: 104.8764037601422,
     },
+    review: [],
   },
   {
     id: "u11",
     uri: "https://react.semantic-ui.com/images/avatar/large/justen.jpg",
     username: "The Rock",
     text: "Rock n Roll",
+    type: "Sports",
     genre: "Fitness",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -174,12 +203,14 @@ export default [
       latitude: 1.546312825830127,
       longitude: 104.1234037601422,
     },
+    review: [],
   },
   {
     id: "u12",
     uri: "https://react.semantic-ui.com/images/avatar/large/laura.jpg",
     username: "Pamela Reif",
     text: "Big A",
+    type: "Sports",
     genre: "Fitness",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -190,5 +221,6 @@ export default [
       latitude: 1.5259612825830127,
       longitude: 107.4564037601422,
     },
+    review: [],
   },
 ];

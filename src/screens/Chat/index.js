@@ -31,64 +31,17 @@ const Chat = () => {
   };
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          width: "100%",
-          height: 70,
-          marginTop: 1,
-          backgroundColor: "white",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 1,
-            height: 2,
-          },
-          shadowOpacity: 0.5,
-          shadowRadius: 5,
-          justifyContent: "center",
-        }}
-      >
-        <View
-          style={{
-            height: "40%",
-            width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text>{route.params.text}</Text>
+      <View style={styles.floatingContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{route.params.text}</Text>
         </View>
-        <View style={{ flexDirection: "row", height: "50%" }}>
-          <Pressable
-            onPress={onPressOffer}
-            style={{
-              backgroundColor: "#97C1A9",
-              height: "100%",
-              width: 80,
-              marginLeft: 10,
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: 10,
-            }}
-          >
-            <Text style={{ color: "white", fontWeight: "bold" }}>Offer</Text>
-          </Pressable>
-          <Pressable
-            onPress={onPressOffer}
-            style={{
-              backgroundColor: "white",
-              height: "100%",
-              width: 80,
-              marginLeft: 10,
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: 10,
-              borderWidth: 0.5,
-              borderColor: "grey",
-            }}
-          >
-            <Text style={{ color: "black", fontWeight: "bold" }}>Accept</Text>
-          </Pressable>
-        </View>
+
+        <Pressable onPress={onPressOffer} style={styles.greenButton}>
+          <Text style={{ color: "white", fontWeight: "bold" }}>Offer</Text>
+        </Pressable>
+        <Pressable onPress={onPressOffer} style={styles.whiteButton}>
+          <Text style={{ color: "black", fontWeight: "bold" }}>Accept</Text>
+        </Pressable>
       </View>
       <FlatList
         data={message}
@@ -106,6 +59,56 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: "#CDEAF7",
+  },
+  text: {
+    color: "grey",
+    fontSize: 20,
+    fontWeight: "200",
+    flexWrap: "wrap",
+  },
+  floatingContainer: {
+    width: "100%",
+    height: "auto",
+    marginTop: 1,
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 1,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    paddingVertical: 10,
+  },
+  textContainer: {
+    height: "auto",
+    width: 200,
+    justifyContent: "center",
+    marginHorizontal: 10,
+    flexDirection: "row",
+  },
+  greenButton: {
+    backgroundColor: "#97C1A9",
+    height: 40,
+    width: 80,
+    marginLeft: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+  },
+  whiteButton: {
+    backgroundColor: "white",
+    height: 40,
+    width: 80,
+    marginLeft: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    borderWidth: 0.5,
+    borderColor: "grey",
   },
 });
 

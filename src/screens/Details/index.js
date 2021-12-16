@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { View, Text, TextInput, StyleSheet, Pressable } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
 import { useNavigation } from "@react-navigation/native";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+//import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Suggestion from "./Suggestion";
 
 const Details = () => {
@@ -18,7 +18,7 @@ const Details = () => {
         height: "100%",
       }}
     >
-      <GooglePlacesAutocomplete
+      {/* <GooglePlacesAutocomplete
         placeholder="Preferred Location"
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
@@ -35,7 +35,7 @@ const Details = () => {
         fetchDetails
         suppressDefaultStyles
         renderRow={(item) => <Suggestion item={item} />}
-      />
+      /> */}
 
       <View style={styles.rowContainer}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>

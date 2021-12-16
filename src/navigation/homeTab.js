@@ -32,7 +32,7 @@ const StackMessage = () => {
 const StackSearchResults = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Top Search" component={SearchResults} />
+      <Stack.Screen name="Browse" component={SearchResults} />
     </Stack.Navigator>
   );
 };
@@ -48,7 +48,7 @@ const HomeTab = () => {
         component={Explore}
         options={{
           tabBarIcon: ({ color }) => (
-            <Fontisto name="search" size={25} color={color} />
+            <Ionicons name="grid-sharp" size={25} color={color} />
           ),
         }}
       />
@@ -66,7 +66,7 @@ const HomeTab = () => {
         component={StackSearchResults}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="grid-sharp" size={25} color={color} />
+            <Fontisto name="search" size={25} color={color} />
           ),
         }}
       />

@@ -1,44 +1,109 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
-  Text,
   StyleSheet,
   ImageBackground,
-  Pressable,
   FlatList,
   Dimensions,
+  TouchableWithoutFeedback,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+  Modal,
+  Text,
 } from "react-native";
-import Fontisto from "react-native-vector-icons/Fontisto";
 import { useNavigation } from "@react-navigation/native";
 import RoundedButton from "../../components/RoundedButton";
-import { ScrollView } from "react-native-gesture-handler";
 import categories from "../../assets/data/categories";
 import feed from "../../assets/data/feed";
 import Post from "../../components/Post";
 import CustomText from "../../components/CustomText";
 import PagerView from "react-native-pager-view";
 import Review from "../../components/Review";
+import AutoCompleteInput from "react-native-autocomplete-input";
+
 const HomeScreen = () => {
   const navigation = useNavigation();
   const windowWidth = Dimensions.get("window").width;
+
   const sortedFeed = [...feed]
     .sort((a, b) => a.star - b.star)
     .slice(feed.length - 3);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <TouchableWithoutFeedback contentContainerStyle={styles.container}>
       <ImageBackground
         source={require("../../assets/images/clouds.jpeg")}
         style={styles.image}
       >
-        {/* search bar */}
-        <Pressable
+        {/* <AutoCompleteInput
+          data={filtered}
+          value={search}
           style={styles.searchButton}
-          onPress={() => navigation.navigate("Interest")}
+          onChangeText={(text) => {
+            searchFilter(text);
+          }}
+          placeholder="Search your interest!"
+          flatListProps={{
+            keyExtractor: (_, idx) => idx,
+            renderItem: (item) => (
+              <View
+                style={{
+                  backgroundColor: "red",
+                  opacity: 0.5,
+                  width: 100,
+                  height: 100,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Text>{item.username}</Text>
+              </View>
+            ),
+          }}
+        /> */}
+        {/* <TouchableOpacity
+          style={{
+            top: "8%",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "absolute",
+            width: "100%",
+            alignSelf: "center",
+            backgroundColor: "black",
+          }}
+          onPress={() => {
+            console.warn("modal visible");
+            setModalVisible(!modalVisible);
+          }}
+        > */}
+
+        {/* <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            console.warn("modal closed");
+            setModalVisible(!modalVisible);
+          }}
         >
-          <Fontisto name="search" size={25} color={"#808080"} />
-          <Text style={styles.buttonText}> What are you looking to learn?</Text>
-        </Pressable>
+          <TouchableOpacity
+            style={{
+              position: "absolute",
+              top: "12%",
+              width: "100%",
+              height: 100,
+              opacity: 0.9,
+              backgroundColor: "white",
+            }}
+            onPress={() => {
+              setModalVisible(!modalVisible);
+            }}
+          ></TouchableOpacity>
+        </Modal> */}
+
+        {/* search bar */}
+
         <View style={styles.backGroundView} />
         <View style={styles.iconView}>
           <FlatList
@@ -63,20 +128,20 @@ const HomeScreen = () => {
           />
         </View>
 
-        <View style={{ position: "absolute", top: "50%" }}>
+        <View style={{ position: "absolute", top: "45%" }}>
           <CustomText left={10} size={20} bottom={10}>
             reccomended for you
           </CustomText>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {feed.map((inst) => {
-              return <Post post={inst} width={300} />;
+              return <Post key={inst.id} post={inst} width={300} />;
             })}
           </ScrollView>
         </View>
         <View
           style={{
             position: "absolute",
-            top: "70%",
+            top: "65%",
           }}
         >
           <CustomText left={10} size={20} bottom={10}>
@@ -84,7 +149,7 @@ const HomeScreen = () => {
           </CustomText>
           <PagerView
             style={{
-              width: windowWidth,
+              width: windowWidth - 10,
               height: 120,
               shadowColor: "#000",
               shadowOffset: {
@@ -101,9 +166,11 @@ const HomeScreen = () => {
               key="1"
               style={{
                 backgroundColor: "white",
-                borderRadius: 50,
+                borderRadius: 20,
                 justifyContent: "center",
                 alignItems: "center",
+                alignSelf: "center",
+                marginHorizontal: 10,
               }}
             >
               <Review instructor={sortedFeed[2]} />
@@ -113,9 +180,10 @@ const HomeScreen = () => {
               key="2"
               style={{
                 backgroundColor: "white",
-                borderRadius: 50,
+                borderRadius: 20,
                 justifyContent: "center",
                 alignItems: "center",
+                marginHorizontal: 10,
               }}
             >
               <Review instructor={sortedFeed[1]} />
@@ -124,9 +192,10 @@ const HomeScreen = () => {
               key="3"
               style={{
                 backgroundColor: "white",
-                borderRadius: 50,
+                borderRadius: 20,
                 justifyContent: "center",
                 alignItems: "center",
+                marginHorizontal: 10,
               }}
             >
               <Review instructor={sortedFeed[0]} />
@@ -134,13 +203,13 @@ const HomeScreen = () => {
           </PagerView>
         </View>
       </ImageBackground>
-    </ScrollView>
+    </TouchableWithoutFeedback>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
+    flex: 1,
     alignContent: "flex-start",
     justifyContent: "center",
   },
@@ -182,38 +251,36 @@ const styles = StyleSheet.create({
   iconView: {
     flexDirection: "column",
     position: "absolute",
-    top: "20%",
+    top: "12%",
     alignItems: "center",
     alignSelf: "center",
   },
   backGroundView: {
     position: "absolute",
-    top: "23%",
+    top: "15%",
     height: 200,
     width: "90%",
     alignSelf: "center",
     backgroundColor: "white",
     opacity: 0.7,
+    borderRadius: 10,
   },
-  searchButton: {
-    flexDirection: "row",
-    backgroundColor: "#ececec",
-    padding: 10,
-    width: "80%",
-    borderRadius: 40,
-    marginLeft: "10%",
-    top: "12%",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    zIndex: 100,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
-  },
+  // searchButton: {
+  //   flexDirection: "row",
+  //   backgroundColor: "#ececec",
+  //   padding: 10,
+  //   borderRadius: 40,
+  //   position: "absolute",
+  //   top: "12%",
+  //   alignSelf: "center",
+  //   width: "80%",
+  //   shadowColor: "#000",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 2,
+  //   },
+  //   shadowOpacity: 0.5,
+  //   shadowRadius: 2,
+  // },
 });
 export default HomeScreen;
