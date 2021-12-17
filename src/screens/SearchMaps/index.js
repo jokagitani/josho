@@ -16,7 +16,7 @@ const SearchMaps = () => {
       const selectedInstructor = viewableItems[0].item;
       setSelectedId(selectedInstructor.id);
     }
-    console.log(viewableItems);
+    console.warn(viewableItems);
   });
   const map = useRef();
 

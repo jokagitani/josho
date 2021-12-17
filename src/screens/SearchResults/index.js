@@ -25,7 +25,7 @@ const SearchResults = (props) => {
     }
   };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{}}>
       <View>
         <TextInput
           style={{
@@ -41,7 +41,7 @@ const SearchResults = (props) => {
             },
             shadowOpacity: 0.2,
             shadowRadius: 1,
-            marginVertical: 10,
+            marginBottom: 5,
           }}
           value={search}
           placeholder="Search your interest!"

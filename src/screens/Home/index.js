@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -6,11 +6,7 @@ import {
   FlatList,
   Dimensions,
   TouchableWithoutFeedback,
-  TextInput,
-  TouchableOpacity,
   ScrollView,
-  Modal,
-  Text,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import RoundedButton from "../../components/RoundedButton";
@@ -20,8 +16,7 @@ import Post from "../../components/Post";
 import CustomText from "../../components/CustomText";
 import PagerView from "react-native-pager-view";
 import Review from "../../components/Review";
-import AutoCompleteInput from "react-native-autocomplete-input";
-
+import PostCarousel from "../../components/PostCarousel";
 const HomeScreen = () => {
   const navigation = useNavigation();
   const windowWidth = Dimensions.get("window").width;
@@ -29,79 +24,28 @@ const HomeScreen = () => {
   const sortedFeed = [...feed]
     .sort((a, b) => a.star - b.star)
     .slice(feed.length - 3);
-
+  const [selectedId, setSelectedId] = useState("");
+  const FlatListrfy = useRef();
+  const viewConfig = useRef({ itemVisiblePercentThreshold: 40 });
+  const onViewChanged = useRef(({ viewableItems }) => {
+    if (viewableItems.length > 0) {
+      const selectedInstructor = viewableItems[0].item;
+      setSelectedId(selectedInstructor.id);
+    }
+  });
+  useEffect(() => {
+    if (!selectedId || !FlatListrfy) {
+      return;
+    }
+    const index = feed.findIndex((inst) => inst.id === selectedId);
+    FlatListrfy.current.scrollToIndex({ index });
+  }, [selectedId]);
   return (
     <TouchableWithoutFeedback contentContainerStyle={styles.container}>
       <ImageBackground
         source={require("../../assets/images/clouds.jpeg")}
         style={styles.image}
       >
-        {/* <AutoCompleteInput
-          data={filtered}
-          value={search}
-          style={styles.searchButton}
-          onChangeText={(text) => {
-            searchFilter(text);
-          }}
-          placeholder="Search your interest!"
-          flatListProps={{
-            keyExtractor: (_, idx) => idx,
-            renderItem: (item) => (
-              <View
-                style={{
-                  backgroundColor: "red",
-                  opacity: 0.5,
-                  width: 100,
-                  height: 100,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Text>{item.username}</Text>
-              </View>
-            ),
-          }}
-        /> */}
-        {/* <TouchableOpacity
-          style={{
-            top: "8%",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "absolute",
-            width: "100%",
-            alignSelf: "center",
-            backgroundColor: "black",
-          }}
-          onPress={() => {
-            console.warn("modal visible");
-            setModalVisible(!modalVisible);
-          }}
-        > */}
-
-        {/* <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            console.warn("modal closed");
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              position: "absolute",
-              top: "12%",
-              width: "100%",
-              height: 100,
-              opacity: 0.9,
-              backgroundColor: "white",
-            }}
-            onPress={() => {
-              setModalVisible(!modalVisible);
-            }}
-          ></TouchableOpacity>
-        </Modal> */}
-
         {/* search bar */}
 
         <View style={styles.backGroundView} />
@@ -119,29 +63,40 @@ const HomeScreen = () => {
 
           <FlatList
             contentContainerStyle={{
-              flexDirection: "row",
               alignSelf: "center",
+              width: windowWidth * 0.9,
             }}
+            horizontal
             data={categories.slice(4)}
             renderItem={({ item }) => <RoundedButton item={item} size={60} />}
             keyExtractor={(item) => item.id}
           />
         </View>
 
-        <View style={{ position: "absolute", top: "45%" }}>
+        <View style={{ position: "absolute", top: "40%" }}>
           <CustomText left={10} size={20} bottom={10}>
             reccomended for you
           </CustomText>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {feed.map((inst) => {
-              return <Post key={inst.id} post={inst} width={300} />;
-            })}
-          </ScrollView>
+
+          <FlatList
+            ref={FlatListrfy}
+            snapToInterval={windowWidth}
+            horizontal
+            data={feed}
+            renderItem={({ item }) => (
+              <PostCarousel key={item.id} post={item} />
+            )}
+            showsHorizontalScrollIndicator={false}
+            snapToAlignment={"center"}
+            decelerationRate={"fast"}
+            viewabilityConfig={viewConfig.current}
+            onViewableItemsChanged={onViewChanged.current}
+          />
         </View>
         <View
           style={{
             position: "absolute",
-            top: "65%",
+            top: "60%",
           }}
         >
           <CustomText left={10} size={20} bottom={10}>

@@ -12,6 +12,7 @@ import Explore from "./Explore";
 import Profile from "../screens/Profile";
 import { createStackNavigator } from "@react-navigation/stack";
 import SearchButton from "../components/SearchButton";
+import SearchMaps from "../screens/SearchMaps";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -53,9 +54,10 @@ const HomeTab = () => {
         }}
       />
       <Tab.Screen
-        name="MyFitnessPal"
-        component={MyFitnessPal}
+        name="SearchMaps"
+        component={SearchMaps}
         options={{
+          title: "Maps",
           tabBarIcon: ({ color }) => (
             <Ionicons name="fitness" size={25} color={color} />
           ),
