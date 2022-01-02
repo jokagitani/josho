@@ -8,22 +8,13 @@ export default [
     genre: "Basketball",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["NBA Champion", "6x NBA All Star"],
     age: 40,
     rate: 45,
-    star: 4.7,
     coordinate: {
       latitude: 1.3248799500000001,
       longitude: 103.92923955857626,
     },
-    review: [
-      {
-        userId: "learner1",
-        username: "learner one",
-        star: 5,
-        uri: require("../../assets/images/icon/user.png"),
-        content: "Had a wonderful time learning the fundamentals of basketball",
-      },
-    ],
   },
   {
     id: "u2",
@@ -34,14 +25,13 @@ export default [
     genre: "Basketball",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["Podcast Host", "NBA Vet"],
     age: 40,
     rate: 45,
-    star: 5.0,
     coordinate: {
       latitude: 1.3035107,
       longitude: 103.87279165366071,
     },
-    review: [],
   },
   {
     id: "u3",
@@ -52,14 +42,13 @@ export default [
     genre: "Social Media",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["2x NBA Champion", "NBA MVP"],
     age: 33,
     rate: 60,
-    star: 4.9,
     coordinate: {
       latitude: 1.3367426670154177,
       longitude: 103.79620206737681,
     },
-    review: [],
   },
   {
     id: "u4",
@@ -70,14 +59,13 @@ export default [
     genre: "Tuition",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["ex NBA player"],
     age: 45,
     rate: 5,
-    star: 3.2,
     coordinate: {
       latitude: 1.3059612825830127,
       longitude: 103.8764037601422,
     },
-    review: [],
   },
   {
     id: "u5",
@@ -88,14 +76,13 @@ export default [
     genre: "Football",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["FIFA Certified Coach", "Serie A Champion"],
     age: 28,
     rate: 25,
-    star: 4.3,
     coordinate: {
       latitude: 1.4059612825830127,
       longitude: 106.8764037601422,
     },
-    review: [],
   },
   {
     id: "u6",
@@ -106,14 +93,13 @@ export default [
     genre: "Tennis",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["20x Grand Slam titles", "Olympic Gold Medalist"],
     age: 30,
     rate: 50,
-    star: 4.8,
     coordinate: {
       latitude: 1.8059612825830127,
       longitude: 103.8764037601422,
     },
-    review: [],
   },
   {
     id: "u7",
@@ -124,14 +110,13 @@ export default [
     genre: "Consultant",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["Co Founder of Alibaba"],
     age: 50,
     rate: 40,
-    star: 4.5,
     coordinate: {
       latitude: 1.5059612825830127,
       longitude: 105.8764037601422,
     },
-    review: [],
   },
   {
     id: "u8",
@@ -142,14 +127,13 @@ export default [
     genre: "Tennis",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["4x Grand Slam Champion"],
     age: 25,
     rate: 35,
-    star: 3.9,
     coordinate: {
       latitude: 1.2059612825830127,
       longitude: 102.8764037601422,
     },
-    review: [],
   },
   {
     id: "u9",
@@ -160,14 +144,13 @@ export default [
     genre: "Basketball",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["5x NBA Champion", "NBA MVP", "18x NBA All Star"],
     age: 45,
     rate: 45,
-    star: 4.7,
     coordinate: {
       latitude: 1.3059612825830127,
       longitude: 103.8764037601422,
     },
-    review: [],
   },
   {
     id: "u10",
@@ -178,14 +161,13 @@ export default [
     genre: "Football",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["Player of Manchester United"],
     age: 60,
     rate: 20,
-    star: 3.1,
     coordinate: {
       latitude: 1.4559612825830127,
       longitude: 104.8764037601422,
     },
-    review: [],
   },
   {
     id: "u11",
@@ -196,14 +178,14 @@ export default [
     genre: "Fitness",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["Hollywood Actor"],
     age: 45,
     rate: 40,
-    star: 3.6,
+
     coordinate: {
       latitude: 1.546312825830127,
       longitude: 104.1234037601422,
     },
-    review: [],
   },
   {
     id: "u12",
@@ -214,9 +196,10 @@ export default [
     genre: "Fitness",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    qualification: ["NCSF certification"],
     age: 29,
     rate: 30,
-    star: 2.8,
+
     coordinate: {
       latitude: 1.5259612825830127,
       longitude: 107.4564037601422,

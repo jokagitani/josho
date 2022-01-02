@@ -1,16 +1,15 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import SearchResults from "../screens/SearchResults";
-import Interest from "../screens/Interest";
 import HomeTab from "./homeTab";
-import Details from "../screens/Details";
 import StarPage from "../screens/Page2";
 import Instructor from "../screens/Instructor";
 import Chat from "../screens/Chat";
 import Messages from "../screens/Messages";
 import CustomerReview from "../screens/CustomerReview/index.js";
 import ChatIcon from "../components/ChatIcon";
+import Category from "../screens/Category";
+import Genre from "../screens/Genre";
 
 const Stack = createStackNavigator();
 
@@ -23,16 +22,7 @@ const Router = () => {
           component={HomeTab}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name={"Interest"}
-          component={Interest}
-          options={{ title: "Find your Interest" }}
-        />
-        <Stack.Screen
-          name={"Refine Search"}
-          component={Details}
-          options={{ title: "Refine your Search" }}
-        />
+
         <Stack.Screen
           name={"Star Page"}
           component={StarPage}
@@ -42,6 +32,20 @@ const Router = () => {
           name={"Instructor"}
           component={Instructor}
           options={{ title: "Instructor" }}
+        />
+        <Stack.Screen
+          name={"Category"}
+          component={Category}
+          options={{
+            headerTitle: false,
+          }}
+        />
+        <Stack.Screen
+          name={"Genre"}
+          component={Genre}
+          options={{
+            headerTitle: false,
+          }}
         />
         <Stack.Screen
           name={"Chat"}

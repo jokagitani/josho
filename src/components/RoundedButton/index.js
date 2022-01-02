@@ -1,8 +1,14 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet, Image } from "react-native";
-import CustomText from "../../components/CustomText";
+import { useNavigation } from "@react-navigation/native";
 
 const RoundedButton = ({ item, size }) => {
+  const navigation = useNavigation();
+  const goToPage = () => {
+    navigation.navigate("Category", {
+      categoryId: item.id,
+    });
+  };
   return (
     <View
       style={{
@@ -16,15 +22,18 @@ const RoundedButton = ({ item, size }) => {
           styles.roundButton,
           { width: size, backgroundColor: item.color },
         ]}
+        onPress={goToPage}
       >
-        <View style={{ height: size * 0.6 }}>
+        <View style={{ height: size * 0.7, justifyContent: "center" }}>
           <Image
-            style={[styles.image, { height: size * 0.6 }]}
+            style={[styles.image, { height: size * 0.5 }]}
             source={item.uri}
           />
         </View>
       </Pressable>
-      <CustomText size={size / 4}>{item.name}</CustomText>
+      <Text style={{ fontSize: 18, fontWeight: "300", letterSpacing: -1.2 }}>
+        {item.name}
+      </Text>
     </View>
   );
 };
@@ -33,7 +42,7 @@ const styles = StyleSheet.create({
   roundButton: {
     backgroundColor: "white",
     borderRadius: 100,
-    padding: 10,
+    padding: 5,
     aspectRatio: 1 / 1,
     justifyContent: "center",
     alignItems: "center",

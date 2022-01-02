@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import Star from "../../components/Star";
+
 const Review = ({ instructor }) => {
   return (
     <View
@@ -35,7 +35,6 @@ const Review = ({ instructor }) => {
         <Text style={{ fontSize: 22, fontWeight: "300" }}>
           {instructor.star}
         </Text>
-        <Star />
       </View>
     </View>
   );

@@ -11,12 +11,17 @@ import {
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/core";
-import { Rating } from "react-native-ratings";
 import PagerView from "react-native-pager-view";
+import reviews from "../../assets/data/reviews";
 
-const Post = (props) => {
-  const post = props.post;
+const Post = ({ post }) => {
   const navigation = useNavigation();
+  const rev = reviews.find((x) => x.user === post.id);
+  const numOfStar =
+    rev.review.length === 0
+      ? 0
+      : rev.review.map((x) => x.star).reduce((y, z) => y + z) /
+        rev.review.length;
   const windowWidth = Dimensions.get("window").width;
   const goToPage = () => {
     navigation.setParams({ title: post.username });
@@ -123,7 +128,7 @@ const Post = (props) => {
                 >
                   <Ionicons name={"star"} size={16} color={"gold"} />
 
-                  <Text style={styles.rate}>{post.star}</Text>
+                  <Text style={styles.rate}>{numOfStar}</Text>
                 </Pressable>
               </View>
             </View>
@@ -156,12 +161,6 @@ const Post = (props) => {
         >
           <Text style={styles.longDescription}>{post.description}</Text>
         </View>
-        <Rating
-          showRating
-          onFinishRating={this.ratingCompleted}
-          style={{ paddingVertical: 10 }}
-          fractions={1}
-        />
       </View>
     </ScrollView>
   );

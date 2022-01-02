@@ -4,7 +4,6 @@ import DetailedMessage from "../../components/DetailedMessage";
 import Message from "../../assets/data/chat";
 import ChatInput from "../../components/ChatInput";
 import { useRoute } from "@react-navigation/native";
-import feed from "../../assets/data/feed";
 
 const Chat = () => {
   const route = useRoute();
@@ -36,10 +35,22 @@ const Chat = () => {
           <Text style={styles.text}>{route.params.text}</Text>
         </View>
 
-        <Pressable onPress={onPressOffer} style={styles.greenButton}>
+        <Pressable
+          onPress={onPressOffer}
+          style={[
+            styles.greenButton,
+            { backgroundColor: offer ? "grey" : "#97C1A9" },
+          ]}
+        >
           <Text style={{ color: "white", fontWeight: "bold" }}>Offer</Text>
         </Pressable>
-        <Pressable onPress={onPressOffer} style={styles.whiteButton}>
+        <Pressable
+          onPress={onPressAccept}
+          style={[
+            styles.whiteButton,
+            { backgroundColor: accept ? "#ECECEC" : "white" },
+          ]}
+        >
           <Text style={{ color: "black", fontWeight: "bold" }}>Accept</Text>
         </Pressable>
       </View>
@@ -91,7 +102,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   greenButton: {
-    backgroundColor: "#97C1A9",
     height: 40,
     width: 80,
     marginLeft: 10,
@@ -100,7 +110,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   whiteButton: {
-    backgroundColor: "white",
     height: 40,
     width: 80,
     marginLeft: 10,

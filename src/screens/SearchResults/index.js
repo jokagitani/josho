@@ -25,15 +25,16 @@ const SearchResults = (props) => {
     }
   };
   return (
-    <View style={{}}>
+    <View style={{ marginVertical: 10 }}>
       <View>
         <TextInput
           style={{
-            width: "100%",
-            height: 50,
-            borderRadius: 20,
+            width: "90%",
+            height: 40,
+            borderRadius: 10,
             padding: 10,
-            backgroundColor: "white",
+            backgroundColor: "#ECECEC",
+            alignSelf: "center",
             shadowColor: "#000",
             shadowOffset: {
               width: 0,

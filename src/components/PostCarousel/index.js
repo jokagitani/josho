@@ -35,7 +35,7 @@ const PostCarousel = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 30,
+    margin: 10,
     padding: 10,
     backgroundColor: "white",
     borderRadius: 20,
@@ -45,11 +45,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 7,
+      height: 1,
     },
-    shadowOpacity: 0.43,
-    shadowRadius: 9.51,
-
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
     elevation: 15,
   },
   image: {
@@ -60,8 +59,8 @@ const styles = StyleSheet.create({
   },
   name: {
     fontWeight: "bold",
-    textShadowColor: "#AFDCEB",
-    textShadowRadius: 10,
+    fontSize: 18,
+    letterSpacing: -1,
   },
   description: {
     textShadowColor: "#AFDCEB",

@@ -1,24 +1,30 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   View,
   StyleSheet,
-  ImageBackground,
   FlatList,
   Dimensions,
-  TouchableWithoutFeedback,
   ScrollView,
+  RefreshControl,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import RoundedButton from "../../components/RoundedButton";
 import categories from "../../assets/data/categories";
 import feed from "../../assets/data/feed";
-import Post from "../../components/Post";
 import CustomText from "../../components/CustomText";
-import PagerView from "react-native-pager-view";
-import Review from "../../components/Review";
 import PostCarousel from "../../components/PostCarousel";
+import PostCard from "../../components/PostCard";
+
+const wait = (timeout) => {
+  return new Promise((resolve) => setTimeout(resolve, timeout));
+};
+
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   const windowWidth = Dimensions.get("window").width;
 
   const sortedFeed = [...feed]
@@ -41,132 +47,86 @@ const HomeScreen = () => {
     FlatListrfy.current.scrollToIndex({ index });
   }, [selectedId]);
   return (
-    <TouchableWithoutFeedback contentContainerStyle={styles.container}>
-      <ImageBackground
-        source={require("../../assets/images/clouds.jpeg")}
-        style={styles.image}
-      >
-        {/* search bar */}
-
-        <View style={styles.backGroundView} />
-        <View style={styles.iconView}>
-          <FlatList
-            contentContainerStyle={{
-              flexDirection: "row",
-              alignSelf: "center",
-              marginBottom: 20,
-            }}
-            data={categories.slice(0, 4)}
-            renderItem={({ item }) => <RoundedButton item={item} size={80} />}
-            keyExtractor={(item) => item.id}
-          />
-
-          <FlatList
-            contentContainerStyle={{
-              alignSelf: "center",
-              width: windowWidth * 0.9,
-            }}
-            horizontal
-            data={categories.slice(4)}
-            renderItem={({ item }) => <RoundedButton item={item} size={60} />}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
-
-        <View style={{ position: "absolute", top: "40%" }}>
-          <CustomText left={10} size={20} bottom={10}>
-            reccomended for you
-          </CustomText>
-
-          <FlatList
-            ref={FlatListrfy}
-            snapToInterval={windowWidth}
-            horizontal
-            data={feed}
-            renderItem={({ item }) => (
-              <PostCarousel key={item.id} post={item} />
-            )}
-            showsHorizontalScrollIndicator={false}
-            snapToAlignment={"center"}
-            decelerationRate={"fast"}
-            viewabilityConfig={viewConfig.current}
-            onViewableItemsChanged={onViewChanged.current}
-          />
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            top: "60%",
+    <ScrollView
+      contentContainerStyle={styles.container}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+    >
+      <View style={styles.backGroundView} />
+      <View style={styles.iconView}>
+        <FlatList
+          contentContainerStyle={{
+            marginBottom: 20,
           }}
-        >
-          <CustomText left={10} size={20} bottom={10}>
-            top reviews
-          </CustomText>
-          <PagerView
-            style={{
-              width: windowWidth - 10,
-              height: 120,
-              shadowColor: "#000",
-              shadowOffset: {
-                width: 1,
-                height: 2,
-              },
-              shadowOpacity: 0.5,
-              shadowRadius: 5,
-            }}
-            initialPage={0}
-            showPageIndicator
-          >
-            <View
-              key="1"
-              style={{
-                backgroundColor: "white",
-                borderRadius: 20,
-                justifyContent: "center",
-                alignItems: "center",
-                alignSelf: "center",
-                marginHorizontal: 10,
-              }}
-            >
-              <Review instructor={sortedFeed[2]} />
-            </View>
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={categories.slice(0, 4)}
+          renderItem={({ item }) => <RoundedButton item={item} size={70} />}
+          keyExtractor={(item) => item.id}
+        />
 
-            <View
-              key="2"
-              style={{
-                backgroundColor: "white",
-                borderRadius: 20,
-                justifyContent: "center",
-                alignItems: "center",
-                marginHorizontal: 10,
-              }}
-            >
-              <Review instructor={sortedFeed[1]} />
-            </View>
-            <View
-              key="3"
-              style={{
-                backgroundColor: "white",
-                borderRadius: 20,
-                justifyContent: "center",
-                alignItems: "center",
-                marginHorizontal: 10,
-              }}
-            >
-              <Review instructor={sortedFeed[0]} />
-            </View>
-          </PagerView>
-        </View>
-      </ImageBackground>
-    </TouchableWithoutFeedback>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={categories.slice(4)}
+          renderItem={({ item }) => <RoundedButton item={item} size={60} />}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+      <View
+        style={{
+          position: "absolute",
+          top: "40%",
+          paddingTop: 20,
+          borderBottomWidth: 2,
+          borderBottomColor: "#ECECEC",
+        }}
+      >
+        <CustomText left={20} size={20}>
+          reccomended for you
+        </CustomText>
+
+        <FlatList
+          ref={FlatListrfy}
+          snapToInterval={windowWidth}
+          horizontal
+          data={feed.slice(0, 5)}
+          renderItem={({ item }) => <PostCarousel post={item} />}
+          showsHorizontalScrollIndicator={false}
+          snapToAlignment={"center"}
+          decelerationRate={"fast"}
+          viewabilityConfig={viewConfig.current}
+          onViewableItemsChanged={onViewChanged.current}
+        />
+      </View>
+      <View
+        style={{
+          position: "absolute",
+          top: "62%",
+          height: 400,
+        }}
+      >
+        <CustomText left={10} size={20} bottom={10}>
+          recently joined
+        </CustomText>
+        <FlatList
+          horizontal
+          data={sortedFeed.reverse()}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => <PostCard instructor={item} />}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignContent: "flex-start",
     justifyContent: "center",
+    backgroundColor: "white",
   },
   image: {
     width: "100%",
@@ -204,10 +164,11 @@ const styles = StyleSheet.create({
     fontWeight: "200",
   },
   iconView: {
-    flexDirection: "column",
     position: "absolute",
     top: "12%",
+    width: "90%",
     alignItems: "center",
+    justifyContent: "center",
     alignSelf: "center",
   },
   backGroundView: {
@@ -216,26 +177,17 @@ const styles = StyleSheet.create({
     height: 200,
     width: "90%",
     alignSelf: "center",
-    backgroundColor: "white",
-    opacity: 0.7,
+    backgroundColor: "#CFEBFD",
+    opacity: 0.4,
     borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    elevation: 15,
   },
-  // searchButton: {
-  //   flexDirection: "row",
-  //   backgroundColor: "#ececec",
-  //   padding: 10,
-  //   borderRadius: 40,
-  //   position: "absolute",
-  //   top: "12%",
-  //   alignSelf: "center",
-  //   width: "80%",
-  //   shadowColor: "#000",
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 2,
-  //   },
-  //   shadowOpacity: 0.5,
-  //   shadowRadius: 2,
-  // },
 });
 export default HomeScreen;

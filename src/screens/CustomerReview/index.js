@@ -4,15 +4,17 @@ import { useRoute } from "@react-navigation/native";
 import feed from "../../assets/data/feed";
 import ReviewCard from "../../components/ReviewCard";
 import Star from "react-native-star-view";
+import reviews from "../../assets/data/reviews";
 
 const CustomerReview = () => {
   const route = useRoute();
-  const reviews = feed.find((x) => x.id === route.params.userId);
-  const numOfReview = reviews.review.length === 0 ? 0 : reviews.review.length;
+  const rev = reviews.find((x) => x.user === route.params.userId);
+  const numOfReview = rev.review.length === 0 ? 0 : rev.review.length;
   const numOfStar =
-    reviews.review.length === 0
+    rev.review.length === 0
       ? 0
-      : reviews.review.map((x) => x.star).reduce((y, z) => y + z);
+      : Math.round(rev.review.map((x) => x.star).reduce((y, z) => y + z) * 10) /
+        (10 * rev.review.length);
   return (
     <View
       style={{
@@ -53,7 +55,7 @@ const CustomerReview = () => {
       </View>
 
       <FlatList
-        data={reviews.review}
+        data={rev.review}
         renderItem={({ item }) => <ReviewCard rev={item} />}
         keyExtractor={(item) => item.userId}
       />
