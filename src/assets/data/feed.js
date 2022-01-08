@@ -1,7 +1,10 @@
 export default [
   {
     id: "u1",
-    uri: "https://react.semantic-ui.com/images/avatar/large/chris.jpg",
+    uri: [
+      "https://react.semantic-ui.com/images/avatar/large/chris.jpg",
+      "https://react.semantic-ui.com/images/avatar/large/chris.jpg",
+    ],
     username: "Nate Archibald",
     text: "Passionate basketball instructor",
     type: "Sports",
@@ -18,7 +21,7 @@ export default [
   },
   {
     id: "u2",
-    uri: "https://react.semantic-ui.com/images/avatar/large/patrick.png",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/patrick.png"],
     username: "JJ Redick",
     text: "NBA shooting coach",
     type: "Sports",
@@ -35,7 +38,7 @@ export default [
   },
   {
     id: "u3",
-    uri: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/stevie.jpg"],
     username: "Kevin Durant",
     text: "Social media head",
     type: "Tuition",
@@ -52,7 +55,7 @@ export default [
   },
   {
     id: "u4",
-    uri: "https://react.semantic-ui.com/images/avatar/large/nan.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/nan.jpg"],
     username: "Brian Scalabrine",
     text: "NBA GOAT",
     type: "Sports",
@@ -69,7 +72,7 @@ export default [
   },
   {
     id: "u5",
-    uri: "https://semantic-ui.com/images/avatar/large/christian.jpg",
+    uri: ["https://semantic-ui.com/images/avatar/large/christian.jpg"],
     username: "Federico Bernadeschi",
     text: "Fashion Baller",
     type: "Sports",
@@ -86,7 +89,7 @@ export default [
   },
   {
     id: "u6",
-    uri: "https://semantic-ui.com/images/avatar/large/daniel.jpg",
+    uri: ["https://semantic-ui.com/images/avatar/large/daniel.jpg"],
     username: "Rodger Federer",
     text: "Spanish Prodigy",
     type: "Sports",
@@ -103,7 +106,7 @@ export default [
   },
   {
     id: "u7",
-    uri: "https://react.semantic-ui.com/images/avatar/large/elliot.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/elliot.jpg"],
     username: "Jack Ma",
     text: "Square Face",
     type: "Tuition",
@@ -120,7 +123,7 @@ export default [
   },
   {
     id: "u8",
-    uri: "https://react.semantic-ui.com/images/avatar/large/helen.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/helen.jpg"],
     username: "Naomi Osaka",
     type: "Sports",
     text: "Serotonin",
@@ -137,7 +140,7 @@ export default [
   },
   {
     id: "u9",
-    uri: "https://react.semantic-ui.com/images/avatar/large/jenny.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/jenny.jpg"],
     username: "Kobe Bryant",
     text: "Mamba Great",
     type: "Sports",
@@ -154,7 +157,7 @@ export default [
   },
   {
     id: "u10",
-    uri: "https://react.semantic-ui.com/images/avatar/large/joe.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/joe.jpg"],
     username: "Harry Maguire",
     text: "Attacking Defender",
     type: "Sports",
@@ -171,7 +174,7 @@ export default [
   },
   {
     id: "u11",
-    uri: "https://react.semantic-ui.com/images/avatar/large/justen.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/justen.jpg"],
     username: "The Rock",
     text: "Rock n Roll",
     type: "Sports",
@@ -189,7 +192,7 @@ export default [
   },
   {
     id: "u12",
-    uri: "https://react.semantic-ui.com/images/avatar/large/laura.jpg",
+    uri: ["https://react.semantic-ui.com/images/avatar/large/laura.jpg"],
     username: "Pamela Reif",
     text: "Big A",
     type: "Sports",

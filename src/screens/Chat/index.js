@@ -1,5 +1,12 @@
-import React, { useState } from "react";
-import { View, StyleSheet, FlatList, Text, Pressable } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  Text,
+  Pressable,
+  SafeAreaView,
+} from "react-native";
 import DetailedMessage from "../../components/DetailedMessage";
 import Message from "../../assets/data/chat";
 import ChatInput from "../../components/ChatInput";
@@ -17,7 +24,8 @@ const Chat = () => {
         .message;
     }
   };
-  const message = isNewMessage();
+
+  const message = [...isNewMessage()].reverse();
   const [offer, useOffer] = useState(false);
   const [accept, useAccept] = useState(false);
   const onPressOffer = () => {
@@ -30,7 +38,7 @@ const Chat = () => {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.floatingContainer}>
+      <SafeAreaView style={styles.floatingContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{route.params.text}</Text>
         </View>
@@ -53,7 +61,7 @@ const Chat = () => {
         >
           <Text style={{ color: "black", fontWeight: "bold" }}>Accept</Text>
         </Pressable>
-      </View>
+      </SafeAreaView>
       <FlatList
         data={message}
         renderItem={({ item }) => <DetailedMessage msg={item} />}

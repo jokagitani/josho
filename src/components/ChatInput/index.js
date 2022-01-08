@@ -19,7 +19,11 @@ const ChatInput = () => {
     console.warn("Recording");
   };
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+      keyboardVerticalOffset={120}
+    >
       <Feather
         style={{ marginHorizontal: 10, marginTop: 5 }}
         name="image"
@@ -54,15 +58,16 @@ const ChatInput = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: "8%",
+    height: 80,
     backgroundColor: "white",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "flex-start",
-    padding: 5,
+    padding: 10,
+    paddingBottom: 50,
   },
   input: {
-    flex: 1,
+    width: 300,
     fontSize: 15,
     borderWidth: 2,
     borderColor: "#ececec",

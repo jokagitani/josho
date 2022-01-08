@@ -23,7 +23,7 @@ const Post = (props) => {
         <Image
           style={styles.image}
           source={{
-            uri: post.uri,
+            uri: post.uri[0],
           }}
         />
 

@@ -38,7 +38,7 @@ const Genre = () => {
               }}
               style={styles.pressable}
             >
-              <Image style={styles.image} source={{ uri: item.uri }} />
+              <Image style={styles.image} source={{ uri: item.uri[0] }} />
               <View style={styles.textContainer}>
                 <Text style={styles.username}>{item.username}</Text>
                 <Text style={styles.description}>{item.text}</Text>

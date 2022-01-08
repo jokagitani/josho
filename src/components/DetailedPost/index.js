@@ -28,7 +28,8 @@ const Post = ({ post }) => {
     navigation.navigate("Chat", {
       msgId: post.id,
       title: post.username,
-      uri: post.uri,
+      text: post.text,
+      uri: post.uri[0],
     });
   };
   const goToStarRating = () => {
@@ -36,64 +37,37 @@ const Post = ({ post }) => {
       userId: post.id,
     });
   };
-
+  const imgs = post.uri.map((x) => {
+    return (
+      <View
+        key={post.uri.indexOf(x)}
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          style={styles.image}
+          source={{
+            uri: x,
+          }}
+        />
+      </View>
+    );
+  });
   return (
     <ScrollView>
       <View style={styles.container}>
-        <View>
-          <PagerView
-            style={{
-              width: windowWidth,
-              aspectRatio: 1 / 1,
-            }}
-            initialPage={0}
-            showPageIndicator
-          >
-            <View
-              key="1"
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Image
-                style={styles.image}
-                source={{
-                  uri: post.uri,
-                }}
-              />
-            </View>
-
-            <View
-              key="2"
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Image
-                style={styles.image}
-                source={{
-                  uri: post.uri,
-                }}
-              />
-            </View>
-            <View
-              key="3"
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Image
-                style={styles.image}
-                source={{
-                  uri: post.uri,
-                }}
-              />
-            </View>
-          </PagerView>
-        </View>
+        <PagerView
+          style={{
+            width: windowWidth,
+            aspectRatio: 1 / 1,
+          }}
+          initialPage={0}
+          showPageIndicator
+        >
+          {imgs}
+        </PagerView>
 
         <View
           style={{
@@ -168,8 +142,7 @@ const Post = ({ post }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
   },
 
   image: {

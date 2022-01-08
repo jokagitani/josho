@@ -19,7 +19,7 @@ const Profile = () => {
         <Image
           style={styles.image}
           source={{
-            uri: instructor.uri,
+            uri: instructor.uri[0],
           }}
         />
         <View style={{ padding: 10 }}>

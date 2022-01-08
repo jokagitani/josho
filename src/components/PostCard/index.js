@@ -43,7 +43,7 @@ const PostCard = ({ instructor }) => {
     >
       <Image
         style={{ height: 150, width: "100%", borderRadius: 10 }}
-        source={{ uri: instructor.uri }}
+        source={{ uri: instructor.uri[0] }}
       />
       <View
         style={{

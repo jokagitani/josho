@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-const Message = (props) => {
-  const msg = props.msg;
+import moment from "moment";
+
+const Message = ({ msg }) => {
   const navigation = useNavigation();
   const goToPage = () => {
     navigation.navigate("Chat", {
@@ -12,7 +13,7 @@ const Message = (props) => {
       text: msg.instructor.text,
     });
   };
-
+  const lastMsg = msg.message[msg.message.length - 1];
   return (
     <Pressable style={styles.container} onPress={goToPage}>
       <View
@@ -24,13 +25,18 @@ const Message = (props) => {
             uri: msg.instructor.uri,
           }}
         />
-
-        <View style={{ width: "70%", flexDirection: "column", marginLeft: 20 }}>
-          <Text style={styles.name}>
-            {msg.instructor.username}
-            <Text style={{ fontSize: 12 }}> {msg.age} </Text>
-          </Text>
-          <Text style={styles.description}>{msg.text}</Text>
+        <View style={{ flexDirection: "row" }}>
+          <View
+            style={{ width: "60%", flexDirection: "column", marginLeft: 20 }}
+          >
+            <Text style={styles.name}>{msg.instructor.username}</Text>
+            <Text style={styles.lastMsg}>{lastMsg.content}</Text>
+          </View>
+          <View style={{}}>
+            <Text style={[styles.lastMsg, { fontSize: 12 }]}>
+              {moment(lastMsg.createdAt).fromNow()}
+            </Text>
+          </View>
         </View>
       </View>
     </Pressable>
@@ -59,10 +65,12 @@ const styles = StyleSheet.create({
     textShadowColor: "#AFDCEB",
     textShadowRadius: 10,
   },
-  description: {
-    fontSize: 12,
-    textShadowColor: "#AFDCEB",
+  lastMsg: {
+    marginTop: 10,
+    fontSize: 16,
+    color: "grey",
     textShadowRadius: 10,
+    letterSpacing: -1,
   },
 });
 

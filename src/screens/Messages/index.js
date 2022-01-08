@@ -3,7 +3,7 @@ import { FlatList, ScrollView } from "react-native";
 import Message from "../../components/Message";
 import chat from "../../assets/data/chat";
 
-const Messages = (props) => {
+const Messages = () => {
   return (
     <ScrollView
       contentContainerStyle={{
