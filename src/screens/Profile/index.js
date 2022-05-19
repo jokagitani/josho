@@ -37,39 +37,27 @@ const Profile = () => {
           <AntDesign name={"right"} size={12} color={"grey"} />
         </Pressable>
         <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
+          <Text style={styles.bodyText}>Help Centre</Text>
           <AntDesign name={"right"} size={12} color={"grey"} />
         </Pressable>
         <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
+          <Text style={styles.bodyText}>Settings</Text>
           <AntDesign name={"right"} size={12} color={"grey"} />
         </Pressable>
         <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
+          <Text style={styles.bodyText}>Share</Text>
           <AntDesign name={"right"} size={12} color={"grey"} />
         </Pressable>
         <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
+          <Text style={styles.bodyText}>Rewards</Text>
           <AntDesign name={"right"} size={12} color={"grey"} />
         </Pressable>
         <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
+          <Text style={styles.bodyText}>Invite Friends</Text>
           <AntDesign name={"right"} size={12} color={"grey"} />
         </Pressable>
         <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
-          <AntDesign name={"right"} size={12} color={"grey"} />
-        </Pressable>
-        <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
-          <AntDesign name={"right"} size={12} color={"grey"} />
-        </Pressable>
-        <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
-          <AntDesign name={"right"} size={12} color={"grey"} />
-        </Pressable>
-        <Pressable style={styles.bodyContainer}>
-          <Text style={styles.bodyText}>Reviews</Text>
+          <Text style={styles.bodyText}>Log Out</Text>
           <AntDesign name={"right"} size={12} color={"grey"} />
         </Pressable>
       </ScrollView>

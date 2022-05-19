@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -23,6 +23,7 @@ const Post = ({ post }) => {
       : rev.review.map((x) => x.star).reduce((y, z) => y + z) /
         rev.review.length;
   const windowWidth = Dimensions.get("window").width;
+  const [like, setLike] = useState(false);
   const goToPage = () => {
     navigation.setParams({ title: post.username });
     navigation.navigate("Chat", {
@@ -84,13 +85,38 @@ const Post = ({ post }) => {
           </View>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "column", width: "40%" }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  marginBottom: 10,
+                }}
+              >
+                <Pressable
+                  onPress={() => {
+                    console.warn("liked");
+                    setLike(!like);
+                  }}
+                >
+                  {like ? (
+                    <Ionicons name={"heart"} size={30} color={"#FF6961"} />
+                  ) : (
+                    <Ionicons name={"heart-outline"} size={30} color={"grey"} />
+                  )}
+                </Pressable>
+                <Text
+                  style={{ fontSize: 25, letterSpacing: -1, fontWeight: "200" }}
+                >
+                  16 Likes
+                </Text>
+              </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Entypo name={"briefcase"} size={12} color={"grey"} />
                 <Text style={styles.description}>{post.genre}</Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Ionicons name={"md-pricetag"} size={12} color={"grey"} />
-                <Text style={styles.rate}>${post.rate} / hour</Text>
+                <Text style={styles.description}>${post.rate} / hour</Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Pressable
@@ -102,7 +128,7 @@ const Post = ({ post }) => {
                 >
                   <Ionicons name={"star"} size={16} color={"gold"} />
 
-                  <Text style={styles.rate}>{numOfStar}</Text>
+                  <Text style={styles.description}>{numOfStar}</Text>
                 </Pressable>
               </View>
             </View>
@@ -116,8 +142,9 @@ const Post = ({ post }) => {
               <Pressable style={styles.enquireButton} onPress={goToPage}>
                 <Text
                   style={{
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: "300",
+                    letterSpacing: -1,
                   }}
                 >
                   Start Chat
@@ -133,7 +160,7 @@ const Post = ({ post }) => {
             justifyContent: "space-around",
           }}
         >
-          <Text style={styles.longDescription}>{post.description}</Text>
+          <Text style={styles.longDescription}>{post.description} </Text>
         </View>
       </View>
     </ScrollView>
@@ -157,8 +184,9 @@ const styles = StyleSheet.create({
   },
   age: { fontSize: 24, marginLeft: 10 },
   description: {
-    color: "grey",
     marginLeft: 10,
+    letterSpacing: -1,
+    fontWeight: "200",
     fontSize: 24,
   },
   rate: {

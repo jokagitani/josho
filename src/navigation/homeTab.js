@@ -1,7 +1,5 @@
 import React from "react";
-import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MyFitnessPal from "../screens/MyFitnessPal";
 import SearchResults from "../screens/SearchResults";
 import Message from "../screens/Messages";
 import Fontisto from "react-native-vector-icons/Fontisto";

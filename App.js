@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "react-native-gesture-handler";
 import Router from "./src/navigation/router";
 
-export default function App() {
+function App() {
   return (
     <>
       <Router />
     </>
   );
 }
+
+export default App;

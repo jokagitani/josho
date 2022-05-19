@@ -22,8 +22,13 @@ const CategoryCard = ({ item }) => {
   };
   return (
     <Pressable onPress={goToPage} style={styles.catContainer}>
-      <View style={[styles.coloredContainer, { backgroundColor: item.color }]}>
-        <Image style={{ height: 40, width: 40 }} source={item.uri} />
+      <View
+        style={[
+          styles.coloredContainer,
+          { opacity: 0.7, backgroundColor: "white" },
+        ]}
+      >
+        <Image style={{ height: 30, width: 30 }} source={item.uri} />
       </View>
       <View
         style={{
@@ -71,10 +76,10 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   coloredContainer: {
-    height: 40,
-    width: 80,
-    justifyContent: "center",
-    alignItems: "center",
+    height: 50,
+    width: 90,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
     borderRadius: 10,
   },
 });

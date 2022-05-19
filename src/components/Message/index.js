@@ -32,10 +32,28 @@ const Message = ({ msg }) => {
             <Text style={styles.name}>{msg.instructor.username}</Text>
             <Text style={styles.lastMsg}>{lastMsg.content}</Text>
           </View>
-          <View style={{}}>
+          <View style={{ flexDirection: "column" }}>
             <Text style={[styles.lastMsg, { fontSize: 12 }]}>
               {moment(lastMsg.createdAt).fromNow()}
             </Text>
+            {msg.newMessage ? (
+              <View
+                style={{
+                  backgroundColor: "#006EE6",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 20,
+                  width: 25,
+                  height: 20,
+                  margin: 5,
+                  marginLeft: 20,
+                }}
+              >
+                <Text style={{ color: "white" }}>{msg.newMessage}</Text>
+              </View>
+            ) : (
+              <View></View>
+            )}
           </View>
         </View>
       </View>

@@ -6,6 +6,7 @@ export default [
       text: "NBA shooting coach",
       uri: "https://react.semantic-ui.com/images/avatar/large/patrick.png",
     },
+    newMessage: 0,
 
     message: [
       {
@@ -53,6 +54,7 @@ export default [
       text: "Social media head",
       uri: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
     },
+    newMessage: 1,
 
     message: [
       {

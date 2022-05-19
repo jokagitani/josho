@@ -2,7 +2,6 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeTab from "./homeTab";
-import StarPage from "../screens/Page2";
 import Instructor from "../screens/Instructor";
 import Chat from "../screens/Chat";
 import Messages from "../screens/Messages";
@@ -23,11 +22,6 @@ const Router = () => {
           options={{ headerShown: false }}
         />
 
-        <Stack.Screen
-          name={"Star Page"}
-          component={StarPage}
-          options={{ title: "Star Page" }}
-        />
         <Stack.Screen
           name={"Instructor"}
           component={Instructor}
